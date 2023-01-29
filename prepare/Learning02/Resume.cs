@@ -13,6 +13,8 @@ public class Resume
         Console.WriteLine($"Name: {_name}");
         Console.WriteLine("Jobs:");
         foreach (Job item in _jobs)
+        {
             item.ShowJob();
+        }
     }
 }
