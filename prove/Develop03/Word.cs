@@ -9,7 +9,7 @@ public class Word
     private int _number;
     private string _verse;
     
-// populates _words and _numbers list when class is instantiated
+// populates _words and _numbers lists when class is instantiated
     public Word(string verse)
     {
         _verse = verse;
@@ -26,18 +26,17 @@ public class Word
         }    
     }
 
-     public List<int> GetNumbers()
-    {
-        return _numbers;
-    }
-
+    // Displays the words of the scripture verse(s) to the console, with each verse on it's own line,
+    //  by looping through the _words list, identifying if the word is an integer which would trigger a new line.
     public void DisplayWords()
     {   
         foreach (string word in _words)
         {
             int verseNum = 0;
             bool result = int.TryParse(word, out verseNum);
-
+            // After identifying an integer(verse number) in _words, the number corresonding 
+            // to the integer's index is removed from _numbers so that the integer will 
+            // continue to be shown and a new line is started.
             if (result == true)
             {
                 int wordIndex = _words.FindIndex(a => a.Contains(word));
@@ -46,11 +45,17 @@ public class Word
             }
 
             Console.Write($" {word}");
-            
         }
         
     }
 
+    // Getter method for the _numbers list.
+      public List<int> GetNumbers()
+    {
+        return _numbers;
+    }
+
+    // Replaces the words in _words with underscores, using the numbers in _numbersUsed as index identifiers.
     public void ReplaceWords()
     {
         foreach (int number in _numbersUsed)
@@ -61,8 +66,11 @@ public class Word
             }
     }
 
-    public void ChooseWords()
+   
+    // Gets random numbers from the _numbers list and adds them to _numbersUsed.
+    public void RandomNumbers()
         {
+            // Gets three random numbers from _numbers.
             if (_numbers.Count() >= 3)
             {
                 for (int i = 0; i < 3; i++)
@@ -90,6 +98,7 @@ public class Word
             
         }
     
+    // Restores _words to its unaltered state.
     public void RestoreWords()
     {
         _words.Clear();
@@ -99,4 +108,6 @@ public class Word
             _words.Add(word);
         }
     }
+
+    
 }    

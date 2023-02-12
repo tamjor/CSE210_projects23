@@ -7,12 +7,8 @@ public class Program
         Console.Clear();
         Console.WriteLine();
         Console.WriteLine("Welcome to the Scripture Mastery Memorizing Program.");
-        // Console.WriteLine("Which Scripture Mastery passages would you like to work on today?");
-        // Console.WriteLine("Enter 'OT' for Old Testament.");
-        // Console.WriteLine("Enter 'NT' for New Testament.");
-        // Console.WriteLine("Enter 'BoM' for Book of Mormon.");
-        // Console.WriteLine("Enter 'DC' for Doctrine and Covenants."); 
-        // Console.Write(">>");
+        Console.WriteLine("As we are studying The New Testament this year, a random \r\nscripture mastery from The New Testament will be used.");
+        Console.WriteLine();
         Console.Write("Press <Enter> to begin.");
         Console.ReadLine();
 
@@ -36,9 +32,11 @@ public class Program
             Console.WriteLine();  
             Console.WriteLine();  
             Console.WriteLine("Press enter to hide words.");
-            Console.WriteLine("Type 'Check' to restore the words.");
-            Console.WriteLine("Type 'Hide' to hide the words again.");
-            Console.WriteLine("Type 'Quit' to end the program.");
+            Console.WriteLine("Type '+' to restore the words.");
+            Console.WriteLine("Type '-' to hide the words again.");
+            Console.WriteLine("Type 'x' to end the program.");
+            Console.WriteLine();
+            Console.WriteLine("Pressing 'Enter' after all words have been hidden will end the program.");
             Console.Write(">>");
             input = Console.ReadLine();
 
@@ -47,27 +45,31 @@ public class Program
                 List<int> numbers = word.GetNumbers();
                 if (numbers.Count() > 0)
                 {
-                    word.ChooseWords();
+                    word.RandomNumbers();
                     word.ReplaceWords();
                 }
                 else
                 {
                     quit = true;
+                    Console.Clear();
+                    Console.WriteLine("Thank you for using the Scripture Mastery Memorizing Program. \r\n \r\nHave a nice day!");
                 }
             }
 
-            else if (input.ToLower() == "Check")
+            else if (input == "+")
             {
                 word.RestoreWords();
             }
 
-            else if (input.ToLower() == "Hide")
+            else if (input == "-")
             {
                 word.ReplaceWords();
             }
 
-            else if (input.ToLower() == "Quit")
+            else if (input == "x")
             {
+                Console.Clear();
+                Console.WriteLine("\r\nThank you for using the Scripture Mastery Memorizing Program. \r\n \r\nHave a nice day!");
                 quit = true;
             }
 
