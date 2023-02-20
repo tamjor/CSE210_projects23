@@ -7,6 +7,8 @@ class Program
         Breathing breathe = new Breathing();
         breathe.ActivityReady();
         int duration = breathe.GetActivityDuration();
-        Console.WriteLine($"You have entered {duration}");
+        Console.WriteLine($"You have entered {duration}"); //for testing purposes
+
+        breathe.BeginActivity(10);
     }
 }
