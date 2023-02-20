@@ -17,12 +17,18 @@ public class Breathing : Activity
 
     public void BreatheIn()
     {
-
+        Console.WriteLine();
+        Console.Write("Breathe in...");
+        CountdownTimer(5);
+        Console.WriteLine();
     }
 
     public void BreatheOut()
     {
-
+        Console.WriteLine();
+        Console.Write("Breathe out...");
+        CountdownTimer(8);
+        Console.WriteLine();
     }
 
    
