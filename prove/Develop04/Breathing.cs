@@ -9,8 +9,8 @@ public class Breathing : Activity
     public Breathing()
     {
         _activityName = "Breathing";
-        _activityDescription = "This activity will help you relax by walking you through breathing in and out slowly. \r\nClear your mind and focus on your breathing.";
-        _activityInstructions = "Breathe in, breathe out.";
+        _activityDescription = "This activity will help you relax by walking you through a focused breathing exercise. \r\nClear your mind and focus on your breathing.";
+        _activityInstructions = "Breathe in through the nose when prompted for the displayed time. \nBreathe out through the mouth when prompted for the displayed time.";
     }
 
     
@@ -18,17 +18,15 @@ public class Breathing : Activity
     public void BreatheIn()
     {
         Console.WriteLine();
-        Console.Write("Breathe in...");
-        CountdownTimer(5);
-        Console.WriteLine();
+        Console.WriteLine("Breathe in...");
+        CountdownTimer(4);
     }
 
     public void BreatheOut()
     {
         Console.WriteLine();
-        Console.Write("Breathe out...");
-        CountdownTimer(8);
-        Console.WriteLine();
+        Console.WriteLine("Breathe out...");
+        CountdownTimer(6);
     }
 
    

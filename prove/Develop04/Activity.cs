@@ -6,20 +6,17 @@ public class Activity
     protected int _activityDuration;
     protected string _activityDescription;
     protected string _activityInstructions;
-    private string[] _pauseAnimations = {"|","/","-","\\"};
-    protected bool _done = false;
-
+    private string[] _pauseAnimations;
+    
+   
     public Activity()
     {
-        
+        _pauseAnimations = new string[] {"|","/","-","\\"};
     }
 
     
-    public int GetActivityDuration()
-    {
-        return _activityDuration;
-    }
-    public void ReadyActivity()
+    
+    public void BeginActivity()
     {
         Console.WriteLine($"Welcome to the {_activityName} activity!");
         Console.WriteLine();
@@ -28,15 +25,36 @@ public class Activity
         Console.Write("How long do you want to do this activity(in seconds)? ");
         _activityDuration = int.Parse(Console.ReadLine());
         Console.WriteLine();
+        Console.WriteLine(_activityInstructions);
+        Console.WriteLine();
+        Console.Write("Press Enter to continue.");
+        string start = Console.ReadLine();
+        Console.Clear();
+        PauseAnimation(5);
+    }
+
+    public int GetActivityDuration()
+    {
+        return _activityDuration;
+    }
+
+    
+
+    public void EndActivity()
+    {
+        Console.WriteLine("Well done!");
+        PauseAnimation(5);
+        Console.WriteLine($"You have completed {_activityDuration} seconds of the {_activityName} Activity.");
+        PauseAnimation(8);
     }
 
     public void CountdownTimer(int time)
     {
-        for (int i = time; i >= 0; i--)
+        for (int i = time; i > 0; i--)
             {
                 Console.Write(i);
                 Thread.Sleep(1000);
-                Console.Write("\b  \b");
+                Console.Write("\b \b");
             }
     }
 
@@ -47,43 +65,9 @@ public class Activity
             foreach (string item in _pauseAnimations)
             {
                 Console.Write(item);
-                Thread.Sleep(250);
+                Thread.Sleep(350);
                 Console.Write("\b \b");
             }
         }
     }
-
-    public void BeginActivity(int time)
-    {
-        CountdownTimer(time);
-        Console.WriteLine();
-        Console.WriteLine(_activityInstructions);
-
-    }
-
-    public bool GetDone()
-    {
-        return _done;
-    }
-    public void ActivtityTimer()
-    {
-        for (int i =_activityDuration; i >= 0; i--)
-        {
-            Thread.Sleep(1000);
-            if (i == 0)
-            {
-                _done = true;
-            }
-        }
-    }
-
-    public void EndActivity()
-    {
-        Console.WriteLine("Well done!");
-        PauseAnimation(5);
-        Console.WriteLine($"You have completed {_activityDuration} seconds of the {_activityName} Activity.");
-        PauseAnimation(8);
-    }
-
-    
 }
