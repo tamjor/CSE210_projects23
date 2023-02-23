@@ -7,6 +7,7 @@ public class Activity
     protected string _activityDescription;
     protected string _activityInstructions;
     private string[] _pauseAnimations;
+    private DateTime _endTime;
     
    
     public Activity()
@@ -30,7 +31,10 @@ public class Activity
         Console.Write("Press Enter to continue.");
         string start = Console.ReadLine();
         Console.Clear();
+        Console.WriteLine("Get ready...");
         PauseAnimation(5);
+        // Console.WriteLine("Pausing");
+        // Thread.Sleep(5000);
     }
 
     public int GetActivityDuration()
@@ -43,9 +47,10 @@ public class Activity
     public void EndActivity()
     {
         Console.WriteLine("Well done!");
-        PauseAnimation(5);
+        PauseAnimation(1);
         Console.WriteLine($"You have completed {_activityDuration} seconds of the {_activityName} Activity.");
-        PauseAnimation(8);
+        PauseAnimation(1);
+        Console.Clear();
     }
 
     public void CountdownTimer(int time)
@@ -58,16 +63,29 @@ public class Activity
             }
     }
 
-    public void PauseAnimation(int time)
+    public void PauseAnimation(int loop)
     {
-        for (int i = time; i >= 0; i--)
+        for (int i = 1; i <= loop; i++)
         {
             foreach (string item in _pauseAnimations)
             {
                 Console.Write(item);
-                Thread.Sleep(350);
+                Thread.Sleep(750);
                 Console.Write("\b \b");
             }
         }
+    }
+
+    public void SetEndTime(int duration)
+    {
+        DateTime startTime = DateTime.Now;
+        Console.WriteLine($"Start Time: {startTime}");
+        DateTime _endTime = startTime.AddSeconds(duration);
+        Console.WriteLine($"End Time: {_endTime}");
+    }
+
+    public DateTime GetEndTime()
+    {
+        return _endTime;
     }
 }

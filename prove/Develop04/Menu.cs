@@ -13,15 +13,16 @@ public class Menu
     
     public void DisplayMenu()
     {
-        Console.WriteLine("Choose which activity you would like to complete from the menu.");
+        Console.WriteLine();
         Console.WriteLine("Menu Options:");
+        int number = 1;
         foreach (string item in _menuOptions)
         {
-            Console.WriteLine($"    1. {item}");
+            Console.WriteLine($"    {number}) {item}");
+            number++;
         }
         Console.Write("Select a choice from the menu:  ");
         _userChoice = int.Parse(Console.ReadLine());
-        Activity activity = new Activity();
         Console.Clear();
     }
 
