@@ -17,7 +17,7 @@ public class Activity
 
     
     
-    public void BeginActivity()
+    public void ActivityIntro()
     {
         Console.WriteLine($"Welcome to the {_activityName} activity!");
         Console.WriteLine();
@@ -32,15 +32,21 @@ public class Activity
         string start = Console.ReadLine();
         Console.Clear();
         Console.WriteLine("Get ready...");
-        PauseAnimation(5);
-        // Console.WriteLine("Pausing");
-        // Thread.Sleep(5000);
+        PauseAnimation(2);
     }
 
-    public int GetActivityDuration()
-    {
-        return _activityDuration;
+    public void StartActivity()
+    {   
+        Console.WriteLine("StartActivity");
+        ActivityIntro();
+        SetEndTime();
     }
+
+
+    // public int GetActivityDuration()
+    // {
+    //     return _activityDuration;
+    // }
 
     
 
@@ -76,16 +82,19 @@ public class Activity
         }
     }
 
-    public void SetEndTime(int duration)
+    public void SetEndTime()
     {
         DateTime startTime = DateTime.Now;
-        Console.WriteLine($"Start Time: {startTime}");
-        DateTime _endTime = startTime.AddSeconds(duration);
-        Console.WriteLine($"End Time: {_endTime}");
+        // Console.WriteLine($"Start Time: {startTime}");  //for testing
+        _endTime = startTime.AddSeconds(_activityDuration);
+        // Console.WriteLine($"End Time: {_endTime}"); //for testing
+        // PauseAnimation(3); //for testing
     }
 
     public DateTime GetEndTime()
     {
+        // Console.WriteLine($"Got end time. {_endTime}"); //for testing
         return _endTime;
+        
     }
 }

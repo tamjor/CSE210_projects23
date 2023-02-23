@@ -27,5 +27,18 @@ public class Breathing : Activity
         CountdownTimer(6);
     }
 
-   
+    public void RunBreathing(DateTime endTime)
+    {
+        Console.WriteLine("Running breathing activity.");
+        DateTime currentTime = DateTime.Now;
+        // Console.WriteLine($"current time is {currentTime}.");
+        // Console.WriteLine($"end time is {endTime}");
+        // PauseAnimation(1);
+        while (currentTime < endTime)
+        {
+            BreatheIn();
+            BreatheOut();
+            currentTime = DateTime.Now;
+        }
+    }
 }

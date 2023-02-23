@@ -4,21 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Breathing breathe = new Breathing();
-        // breathe.ReadyActivity();
-        // // int duration = breathe.GetActivityDuration(); //for testing purposes
-        // // Console.WriteLine($"You have entered {duration}"); //for testing purposes
-
-        // breathe.BeginActivity(5);
-        
-        // for (bool done = false; done == false; done = breathe.GetDone())
-        // {
-        //     breathe.BreatheIn();
-        //     breathe.BreatheOut();
-        // }
-        // breathe.EndActivity();
         int choice = 0;
-        
         
         while (choice != 4)
         {
@@ -29,27 +15,22 @@ class Program
             if (choice == 1) //Breathing Activity
             {   
                 Breathing breathe = new Breathing();
-                breathe.BeginActivity();
-                int duration = breathe.GetActivityDuration();
-                Console.WriteLine($"Duration: {duration}");
-                breathe.SetEndTime(duration);
-                DateTime endTime = breathe.GetEndTime(); 
-                DateTime currentTime = DateTime.Now;
-                Console.WriteLine($"Current Time before loop: {currentTime}");
-                while (currentTime < endTime)
-                {
-                    breathe.BreatheIn();
-                    breathe.BreatheOut();
-                    currentTime = DateTime.Now;
-                    Console.WriteLine($"Current Time in loop: {currentTime}");
-                }
+                breathe.StartActivity();
+                DateTime endTime = breathe.GetEndTime();
+                Console.WriteLine(endTime);
+                breathe.RunBreathing(endTime);
                 breathe.EndActivity();
             }
 
             else if (choice == 2) //Reflection Activity
             {
                 Reflection reflect = new Reflection();
-                reflect.BeginActivity();
+                reflect.StartActivity();
+                DateTime endTime = reflect.GetEndTime();
+                reflect.RunReflection(endTime);
+                reflect.EndActivity();
+                    
+               
 
 
 
@@ -64,7 +45,8 @@ class Program
 
             else
             {
-
+                Console.WriteLine("That is not a recognized response.");
+                Console.WriteLine("Please try again.");
             }
         }
 
