@@ -7,7 +7,7 @@ public class Activity
     protected string _activityDescription;
     protected string _activityInstructions;
     private string[] _pauseAnimations;
-    private DateTime _endTime;
+    protected DateTime _endTime;
     
    
     public Activity()
@@ -17,7 +17,7 @@ public class Activity
 
     
     
-    public void ActivityIntro()
+    public void StartActivity()
     {
         Console.WriteLine($"Welcome to the {_activityName} activity!");
         Console.WriteLine();
@@ -32,32 +32,38 @@ public class Activity
         string start = Console.ReadLine();
         Console.Clear();
         Console.WriteLine("Get ready...");
+        Console.Write("    ");
         PauseAnimation(2);
-    }
-
-    public void StartActivity()
-    {   
-        ActivityIntro();
-        SetEndTime();
+        Console.WriteLine();
     }
 
     public void EndActivity()
     {
+        Console.WriteLine();
         Console.WriteLine("Well done!");
-        PauseAnimation(1);
+        Console.Write("    ");
+        PauseAnimation(2);
+         Console.WriteLine();
         Console.WriteLine($"You have completed {_activityDuration} seconds of the {_activityName} Activity.");
-        PauseAnimation(1);
+        Console.Write("    ");
+        PauseAnimation(3);
         Console.Clear();
+    }
+
+     public void SetEndTime()
+    {
+        DateTime startTime = DateTime.Now;
+        _endTime = startTime.AddSeconds(_activityDuration);
     }
 
     public void CountdownTimer(int time)
     {
         for (int i = time; i > 0; i--)
             {
-                Console.Write(i);
+                Console.Write($"\b{i}");
                 Thread.Sleep(1000);
-                Console.Write("\b \b");
             }
+        Console.Write($"\b \b");
     }
 
     public void PauseAnimation(int loop)
@@ -66,21 +72,12 @@ public class Activity
         {
             foreach (string item in _pauseAnimations)
             {
-                Console.Write(item);
-                Thread.Sleep(750);
-                Console.Write("\b \b");
+                Console.Write($"\b{item}");
+                Thread.Sleep(500);
             }
         }
+        Console.Write($"\b \b");
     }
 
-    public void SetEndTime()
-    {
-        DateTime startTime = DateTime.Now;
-        _endTime = startTime.AddSeconds(_activityDuration);
-    }
-
-    public DateTime GetEndTime()
-    {
-        return _endTime;   
-    }
+   
 }

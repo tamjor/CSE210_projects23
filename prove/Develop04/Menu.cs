@@ -18,7 +18,7 @@ public class Menu
         int number = 1;
         foreach (string item in _menuOptions)
         {
-            Console.WriteLine($"    {number}) {item}");
+            Console.WriteLine($"  {number}) {item}");
             number++;
         }
         Console.Write("Select a choice from the menu:  ");

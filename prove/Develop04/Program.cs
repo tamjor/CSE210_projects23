@@ -4,8 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
+        Console.WriteLine();
+        Console.WriteLine("Welcome to the Mindfulness Program!");
         int choice = 0;
-        do 
+        while (choice != 4)
         {
             Menu menu = new Menu();
             menu.DisplayMenu();
@@ -15,8 +18,7 @@ class Program
             {   
                 Breathing breathe = new Breathing();
                 breathe.StartActivity();
-                DateTime endTime = breathe.GetEndTime();
-                breathe.RunBreathing(endTime);
+                breathe.RunBreathing();
                 breathe.EndActivity();
             }
 
@@ -24,8 +26,7 @@ class Program
             {
                 Reflection reflect = new Reflection();
                 reflect.StartActivity();
-                DateTime endTime = reflect.GetEndTime();
-                reflect.RunReflection(endTime);
+                reflect.RunReflection();
                 reflect.EndActivity();
             }
 
@@ -33,19 +34,23 @@ class Program
             {
                 Listing list = new Listing();
                 list.StartActivity();
-                DateTime endTime = list.GetEndTime();
-                list.RunListing(endTime);
+                list.RunListing();
                 list.EndActivity();
             }
-    
+
             else
             {
-                Console.WriteLine("That is not a recognized response.");
-                Console.WriteLine("Please try again.");
+                if (choice != 4)
+                {
+                    Console.WriteLine("That is not a recognized response.");
+                    Console.WriteLine("Please try again.");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                }
             }
             
         }
-        while (choice != 4);
+        
 
         Console.WriteLine("Thank you for participating. Have a wonderful day!");
         Thread.Sleep(3000);

@@ -34,14 +34,13 @@ public class Listing : Activity
         }
     }
 
-    public void RunListing(DateTime endTime)
+    public void RunListing()
     {
-        DateTime currentTime = DateTime.Now;
-        while (currentTime < endTime)
+        SetEndTime();
+        while (DateTime.Now < _endTime)
         {
             SetPrompt();
             DisplayListingPrompt();
-            currentTime = DateTime.Now;
         }
         DisplayResponseQuantity();
     }
@@ -63,13 +62,16 @@ public class Listing : Activity
     }
     public void DisplayListingPrompt()
     {
+        Console.Write(">> ");
         Console.WriteLine(_prompt);
-        Console.Write(">>");
         Console.ReadLine();
+        Console.WriteLine();
         _responseQuantity += 1;
     }
     public void DisplayResponseQuantity()
     {
-        Console.WriteLine($"You responded to {_responseQuantity} prompts.");
+        Console.WriteLine();
+        Console.WriteLine($"You responded to {_responseQuantity} prompts in {_activityDuration} seconds.");
+        PauseAnimation(2);
     }
 }

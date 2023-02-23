@@ -13,25 +13,26 @@ public class Breathing : Activity
     public void BreatheIn()
     {
         Console.WriteLine();
-        Console.WriteLine("Breathe in...");
+        Console.Write("Breathe in...  ");
         CountdownTimer(4);
+        Console.WriteLine();
     }
 
     public void BreatheOut()
     {
         Console.WriteLine();
-        Console.WriteLine("Breathe out...");
+        Console.Write("Breathe out...  ");
         CountdownTimer(6);
+        Console.WriteLine();
     }
 
-    public void RunBreathing(DateTime endTime)
+    public void RunBreathing()
     {
-        DateTime currentTime = DateTime.Now;
-        while (currentTime < endTime)
+        SetEndTime();
+        while (DateTime.Now < _endTime)
         {
             BreatheIn();
             BreatheOut();
-            currentTime = DateTime.Now;
         }
     }
 }
