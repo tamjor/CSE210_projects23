@@ -5,8 +5,7 @@ class Program
     static void Main(string[] args)
     {
         int choice = 0;
-        
-        while (choice != 4)
+        do 
         {
             Menu menu = new Menu();
             menu.DisplayMenu();
@@ -17,7 +16,6 @@ class Program
                 Breathing breathe = new Breathing();
                 breathe.StartActivity();
                 DateTime endTime = breathe.GetEndTime();
-                Console.WriteLine(endTime);
                 breathe.RunBreathing(endTime);
                 breathe.EndActivity();
             }
@@ -29,26 +27,25 @@ class Program
                 DateTime endTime = reflect.GetEndTime();
                 reflect.RunReflection(endTime);
                 reflect.EndActivity();
-                    
-               
-
-
-
-
-
             }
 
             else if (choice == 3)
             {
                 Listing list = new Listing();
+                list.StartActivity();
+                DateTime endTime = list.GetEndTime();
+                list.RunListing(endTime);
+                list.EndActivity();
             }
-
+    
             else
             {
                 Console.WriteLine("That is not a recognized response.");
                 Console.WriteLine("Please try again.");
             }
+            
         }
+        while (choice != 4);
 
         Console.WriteLine("Thank you for participating. Have a wonderful day!");
         Thread.Sleep(3000);

@@ -6,9 +6,6 @@ public class Reflection : Activity
   private string _filenameQ;
   private List<string> _prompts = new List<string>();
   private List<string> _questions = new List<string>();
-  
-  // private string _prompt;
-  // private string _question;
   private string _item;
 
   public Reflection()
@@ -52,49 +49,16 @@ public class Reflection : Activity
     }
   }
 
-  // public void SetPrompt()
-  // {
-  //   if (_prompts.Count == 0)
-  //   {
-  //     string[] promptLines = File.ReadAllLines(_filenameP);
-  //     foreach (string line in promptLines)
-  //     {
-  //       _prompts.Add(line);
-  //     }
-  //   }
-  //   var randomGen = new Random();
-  //   int index = randomGen.Next(_prompts.Count);
-  //   _prompt = _prompts[index];
-  // }
-  // public List<string> GetPrompts()
-  // {
-  //   return _prompts;
-  // }
-
-  // public List<string> GetQuestions()
-  // {
-  //   return _questions;
-  // }
-
-  // public string GetPromptFile()
-  // {
-  //   return _filenameP;
-  // }
-
-  // public string GetQuestionFile()
-  // {
-  //   return _filenameQ;
-  // }
   public void RunReflection(DateTime endTime)
   {
     SetReflectItem(_prompts, _filenameP);
     DisplayReflectItem();
-    PauseAnimation(3);
+    PauseAnimation(2);
     DateTime currentTime = DateTime.Now;
     while (currentTime < endTime)
     {
       SetReflectItem(_questions, _filenameQ);
-      PauseAnimation(2);
+      PauseAnimation(1);
       currentTime = DateTime.Now;
     }
   }
@@ -119,10 +83,5 @@ public class Reflection : Activity
     Console.WriteLine(_item);
 
   }
-
-  // public void DisplayReflectionQuestion()
-  // {
-    
-  // }
 
 }

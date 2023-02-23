@@ -2,17 +2,22 @@ using System;
 
 public class Listing : Activity
 {
-    private List<string> _prompts;
+    private List<string> _prompts = new List<string>();
     private string _prompt;
     private int _responseQuantity;
     private string _filename;
     public Listing()
     {
         _activityName = "Listing";
-        _activityDescription = "";
-        _activityInstructions = "";
-        _filename ="";
-        // add prompts from file to _prompts List
+        _activityDescription = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+        _activityInstructions = "You will be shown a prompt to respond to. Once you have finished, a new prompt will be shown until the specified time has elapsed.";
+        _filename ="ListingPrompts.txt";
+        _responseQuantity = 0;
+        string[] lines = File.ReadAllLines(_filename);
+        foreach (string line in lines)
+        {
+            _prompts.Add(line);
+        }
     }
 
     public Listing(string filename)
@@ -21,24 +26,50 @@ public class Listing : Activity
         _activityDescription = "";
         _activityInstructions = "";
         _filename = filename;
-        // add prompts from file to _prompts List
+        _responseQuantity = 0;
+        string[] lines = File.ReadAllLines(_filename);
+        foreach (string line in lines)
+        {
+            _prompts.Add(line);
+        }
+    }
+
+    public void RunListing(DateTime endTime)
+    {
+        DateTime currentTime = DateTime.Now;
+        while (currentTime < endTime)
+        {
+            SetPrompt();
+            DisplayListingPrompt();
+            currentTime = DateTime.Now;
+        }
+        DisplayResponseQuantity();
     }
 
     public void SetPrompt()
     {
-
+        if (_prompts.Count == 0)
+        {
+        string[] lines = File.ReadAllLines(_filename);
+        foreach (string line in lines)
+        {
+            _prompts.Add(line);
+        }
+        }
+        var randomGen = new Random();
+        int index = randomGen.Next(_prompts.Count);
+        _prompt = _prompts[index];
+        _prompts.RemoveAt(index);
     }
     public void DisplayListingPrompt()
     {
-
+        Console.WriteLine(_prompt);
+        Console.Write(">>");
+        Console.ReadLine();
+        _responseQuantity += 1;
     }
-    public void DisplayResponseAmount()
-    {
-
-    }
-
     public void DisplayResponseQuantity()
     {
-
+        Console.WriteLine($"You responded to {_responseQuantity} prompts.");
     }
 }

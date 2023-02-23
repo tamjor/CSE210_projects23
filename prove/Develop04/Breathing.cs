@@ -3,9 +3,6 @@ using System;
 public class Breathing : Activity
 {
     
-
-
-
     public Breathing()
     {
         _activityName = "Breathing";
@@ -29,11 +26,7 @@ public class Breathing : Activity
 
     public void RunBreathing(DateTime endTime)
     {
-        Console.WriteLine("Running breathing activity.");
         DateTime currentTime = DateTime.Now;
-        // Console.WriteLine($"current time is {currentTime}.");
-        // Console.WriteLine($"end time is {endTime}");
-        // PauseAnimation(1);
         while (currentTime < endTime)
         {
             BreatheIn();

@@ -37,18 +37,9 @@ public class Activity
 
     public void StartActivity()
     {   
-        Console.WriteLine("StartActivity");
         ActivityIntro();
         SetEndTime();
     }
-
-
-    // public int GetActivityDuration()
-    // {
-    //     return _activityDuration;
-    // }
-
-    
 
     public void EndActivity()
     {
@@ -85,16 +76,11 @@ public class Activity
     public void SetEndTime()
     {
         DateTime startTime = DateTime.Now;
-        // Console.WriteLine($"Start Time: {startTime}");  //for testing
         _endTime = startTime.AddSeconds(_activityDuration);
-        // Console.WriteLine($"End Time: {_endTime}"); //for testing
-        // PauseAnimation(3); //for testing
     }
 
     public DateTime GetEndTime()
     {
-        // Console.WriteLine($"Got end time. {_endTime}"); //for testing
-        return _endTime;
-        
+        return _endTime;   
     }
 }
