@@ -13,7 +13,7 @@ public class Grounding : Activity
 
     public void DisplayGroundPrompts ()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < foci.Length; i++)  
         {
             Console.WriteLine();
             Console.WriteLine($"--- Name {i + 1} thing(s) you can {foci[i]}. ---");

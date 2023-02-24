@@ -1,5 +1,6 @@
 using System;
-
+//This class displays the menu and gets the user's menu choice.
+// This class holds the menu options and the user's choice. Methods are provided to display the menu and get the user's choice.
 public class Menu
 {
     private string[] _menuOptions;
@@ -11,11 +12,12 @@ public class Menu
     }
 
     
-    public void DisplayMenu()
+    public void DisplayMenu() //Displays the menu
     {
         Console.WriteLine();
         Console.WriteLine("Menu Options:");
         int number = 1;
+        //loops through _menuOptions and displays each option with a number.
         foreach (string item in _menuOptions)
         {
             Console.WriteLine($"  {number}) {item}");
@@ -26,7 +28,7 @@ public class Menu
         Console.Clear();
     }
 
-    public int GetUserChoice()
+    public int GetUserChoice() //Returns the user's choice
     {
         return _userChoice;
     }

@@ -26,19 +26,19 @@ class Program
                 reflect.RunReflection();
             }
 
-            else if (choice == 3)
+            else if (choice == 3) //Listing activity
             {
                 Listing list = new Listing();
                 list.RunListing();
             }
 
-            else if (choice == 4)
+            else if (choice == 4) //Listing activity
             {
                 Grounding ground = new Grounding();
                 ground.RunGrounding();
             }
 
-            else
+            else //Fat finger insurance
             {
                 if (choice != 5)
                 {
@@ -51,7 +51,7 @@ class Program
             
         }
         
-
+        //Runs when the option to quit is chosen.
         Console.WriteLine("Thank you for participating. Have a wonderful day!");
         Thread.Sleep(3000);
         Console.Clear();

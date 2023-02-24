@@ -16,12 +16,14 @@ public class Reflection : Activity
     _filenameP = "ReflectPrompts.txt";
     _filenameQ = "ReflectQuestions.txt";
   
+    //populates _prompts from _filenameP
     string[] promptLines = File.ReadAllLines(_filenameP);
     foreach (string line in promptLines)
     {
       _prompts.Add(line);
     }
-      
+
+    //populates _questions from _filenameQ  
     string[] promptQuestions = File.ReadAllLines(_filenameQ);
     foreach (string line in promptQuestions)
     {
@@ -37,21 +39,25 @@ public class Reflection : Activity
     _filenameP = filenameP;
     _filenameQ = filenameQ;
     
+    //populates _prompts from _filenameP
     string[] promptLines = File.ReadAllLines(_filenameP);
     foreach (string line in promptLines)
     {
       _prompts.Add(line);
     }
-      
+
+    //populates _questions from _filenameQ 
     string[] promptQuestions = File.ReadAllLines(_filenameQ);
     foreach (string line in promptQuestions)
     {
       _questions.Add(line);
     }
   }
-  
-  public void SetReflectItem(List<string> list, string filename)
+
+  //sets _item(prompt or question) depending on which list and filename is specified in the arguments
+  public void SetReflectItem(List<string> list, string filename) 
   {
+    //repopulates the list if it's empty
     if (list.Count == 0)
     {
       string[] lines = File.ReadAllLines(filename);
@@ -60,10 +66,11 @@ public class Reflection : Activity
         list.Add(line);
       }
     }
+    //gets random item from specified list
     var randomGen = new Random();
     int index = randomGen.Next(list.Count);
     _item = list[index];
-    list.RemoveAt(index);
+    list.RemoveAt(index); //removes item from list to prevent duplicate uses
   }
   
   public void DisplayReflectItem()
@@ -75,7 +82,7 @@ public class Reflection : Activity
   {
     StartActivity();
     Console.WriteLine();
-    SetReflectItem(_prompts, _filenameP);
+    SetReflectItem(_prompts, _filenameP); //sets _item to a prompt
     Console.Write("-- ");
     DisplayReflectItem();
     Console.Write(" --");
@@ -85,7 +92,7 @@ public class Reflection : Activity
     while (DateTime.Now < _endTime)
     {
       Console.WriteLine();
-      SetReflectItem(_questions, _filenameQ);
+      SetReflectItem(_questions, _filenameQ); //sets _item to a question
       Console.Write("  ");
       DisplayReflectItem();
       Console.Write("  ");

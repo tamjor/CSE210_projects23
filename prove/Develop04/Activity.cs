@@ -9,22 +9,18 @@ public class Activity
     private string[] _pauseAnimations;
     protected DateTime _endTime;
     
-   
     public Activity()
     {
         _pauseAnimations = new string[] {"|","/","-","\\"};
     }
 
-    
-    
     public void StartActivity()
     {
         Console.WriteLine($"Welcome to the {_activityName} activity!");
         Console.WriteLine();
         Console.WriteLine(_activityDescription);
         Console.WriteLine();
-        Console.Write("How long do you want to do this activity(in seconds)? ");
-        _activityDuration = int.Parse(Console.ReadLine());
+        GetActivityDuration();
         Console.WriteLine();
         Console.WriteLine(_activityInstructions);
         Console.WriteLine();
@@ -56,7 +52,7 @@ public class Activity
         _endTime = startTime.AddSeconds(_activityDuration);
     }
 
-    public void CountdownTimer(int time)
+    public void CountdownTimer(int time) //time is in seconds
     {
         for (int i = time; i > 0; i--)
             {
@@ -66,7 +62,7 @@ public class Activity
         Console.Write($"\b \b");
     }
 
-    public void PauseAnimation(int loop)
+    public void PauseAnimation(int loop) //each loop is about 2 seconds
     {
         for (int i = 1; i <= loop; i++)
         {
@@ -79,5 +75,15 @@ public class Activity
         Console.Write($"\b \b");
     }
 
-   
+   public void GetActivityDuration()
+   {
+        bool isInteger;
+        do
+        {
+            Console.Write("How long do you want to do this activity(in seconds)? ");
+            isInteger = int.TryParse(Console.ReadLine(), out _activityDuration);
+            
+        }
+        while (!isInteger);
+   }
 }
