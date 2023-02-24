@@ -8,7 +8,7 @@ class Program
         Console.WriteLine();
         Console.WriteLine("Welcome to the Mindfulness Program!");
         int choice = 0;
-        while (choice != 4)
+        while (choice != 5)
         {
             Menu menu = new Menu();
             menu.DisplayMenu();
@@ -17,30 +17,30 @@ class Program
             if (choice == 1) //Breathing Activity
             {   
                 Breathing breathe = new Breathing();
-                breathe.StartActivity();
                 breathe.RunBreathing();
-                breathe.EndActivity();
             }
 
             else if (choice == 2) //Reflection Activity
             {
                 Reflection reflect = new Reflection();
-                reflect.StartActivity();
                 reflect.RunReflection();
-                reflect.EndActivity();
             }
 
             else if (choice == 3)
             {
                 Listing list = new Listing();
-                list.StartActivity();
                 list.RunListing();
-                list.EndActivity();
+            }
+
+            else if (choice == 4)
+            {
+                Grounding ground = new Grounding();
+                ground.RunGrounding();
             }
 
             else
             {
-                if (choice != 4)
+                if (choice != 5)
                 {
                     Console.WriteLine("That is not a recognized response.");
                     Console.WriteLine("Please try again.");

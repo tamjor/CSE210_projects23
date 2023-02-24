@@ -28,11 +28,13 @@ public class Breathing : Activity
 
     public void RunBreathing()
     {
+        StartActivity();
         SetEndTime();
         while (DateTime.Now < _endTime)
         {
             BreatheIn();
             BreatheOut();
         }
+        EndActivity();
     }
 }

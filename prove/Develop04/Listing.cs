@@ -36,6 +36,7 @@ public class Listing : Activity
 
     public void RunListing()
     {
+        StartActivity();
         SetEndTime();
         while (DateTime.Now < _endTime)
         {
@@ -43,6 +44,7 @@ public class Listing : Activity
             DisplayListingPrompt();
         }
         DisplayResponseQuantity();
+        EndActivity();
     }
 
     public void SetPrompt()

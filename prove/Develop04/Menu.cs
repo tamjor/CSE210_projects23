@@ -7,7 +7,7 @@ public class Menu
 
     public Menu()
     {
-        _menuOptions = new string[] {"Breathing" , "Reflection" , "Listing" , "Quit"};
+        _menuOptions = new string[] {"Breathing" , "Reflection" , "Listing" , "Grounding", "Quit"};
     }
 
     

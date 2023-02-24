@@ -73,6 +73,7 @@ public class Reflection : Activity
 
   public void RunReflection()
   {
+    StartActivity();
     Console.WriteLine();
     SetReflectItem(_prompts, _filenameP);
     Console.Write("-- ");
@@ -91,6 +92,7 @@ public class Reflection : Activity
       PauseAnimation(3);
       Console.WriteLine();
     }
+    EndActivity();
   }
 
 }
