@@ -70,6 +70,7 @@ public class Listing : Activity
     {
         Console.WriteLine();
         Console.WriteLine($"You responded to {_responseQuantity} prompts in {_activityDuration} seconds.");
+        Console.Write("    ");
         PauseAnimation(2);
     }
 

@@ -15,9 +15,10 @@ public class Grounding : Activity
     {
         for (int i = 0; i < foci.Length; i++)  
         {
+            int loop = 2;
             Console.WriteLine();
             Console.WriteLine($"--- Name {i + 1} thing(s) you can {foci[i]}. ---");
-            PauseAnimation(i + 1);
+            PauseAnimation(loop++);
         }
     }
 
