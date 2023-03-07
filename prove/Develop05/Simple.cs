@@ -1,9 +1,13 @@
 using System;
 
 public class Simple : Goal
-{
+{   
     
+    
+    public Simple() : base()
+    {
 
+    }
 
 
     public override void CreateGoal()

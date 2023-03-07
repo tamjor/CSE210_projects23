@@ -2,32 +2,19 @@ using System;
 
 public abstract class Goal
 {
-    private int _userPoints;
-    private string _goalName;
-    private string _goalDescription;
-    private int _goalPoints;
-    private string _date;
-    private Dictionary<string, string> _goals = new Dictionary<string, string>();
+    protected int _userPoints;
+    protected string _goalName;
+    protected string _goalDescription;
+    protected int _goalPoints;
+    protected string _date; 
+    protected bool _isComplete;
+    protected Dictionary<string, string> _goals = new Dictionary<string, string>();
 
-    public void SaveToFile()
+    public Goal()
     {
-
+        File file = new File();
     }
-
-    public void LoadFromFile()
-    {
-
-    }
-
-    public void Serialize()
-    {
-
-    }
-
-    public void Deserialize()
-    {
-
-    }
+   
 
     public abstract void CreateGoal();
 

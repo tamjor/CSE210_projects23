@@ -2,9 +2,12 @@ using System;
 
 public class Eternal : Goal
 {
-    
+    // private int _numberComplete;
 
-
+    public Eternal() : base()
+    {
+        
+    }
 
     public override void CreateGoal()
     {

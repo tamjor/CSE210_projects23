@@ -2,9 +2,13 @@ using System;
 
 public class Checkpoint : Goal
 {
-    
+    private int _currentNumber;
+    private int _goalNumber;
 
-
+    public Checkpoint() : base()
+    {
+       
+    }
 
     public override void CreateGoal()
     {

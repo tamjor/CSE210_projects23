@@ -2,29 +2,55 @@ using System;
 
 public class Menu
 {
-    private string[] _options;
-    private string[] _subOptions;
-    private int _number = 0;
+    private string[] _mainMenu;
+    private string[] _createMenu;
+    private string[] _listMenu;
+    private int _number = 1;
     private int _userChoice;
 
     public Menu()
     {
-        _options = new string[] {"Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit"};
-        _subOptions = new string[] {"Create simple goal", "Create eternal goal", "Create checkpoint goal"};
+        _mainMenu = new string[] {"Create New Goal", "List Goals", "Save Goals", "Load Goals", "Record Event", "Quit"};
+        _createMenu = new string[] {"Create simple goal", "Create eternal goal", "Create checkpoint goal"};
+        _listMenu = new string[] {"List all goals","List simple goals","List eternal goals","List checkpoint goals"};
     }
 
-    public void DisplayMenu()
+     public void DisplayMenu(string[] array) //Displays the menu
     {
+        Console.WriteLine();
+        Console.WriteLine("Menu Options:");
+        //loops through _menuOptions and displays each option with a number.
+        foreach (string item in array)
+        {
+            Console.WriteLine($"  {_number}) {item}");
+            _number++;
+        }
+        Console.Write("Select a choice from the menu:  ");
+        _userChoice = int.Parse(Console.ReadLine());
+        //need error handling for wrong type entered
 
-    }
-    public void DisplaySubMenu()
-    {
-
+        Console.Clear();
     }
 
     public int GetUserChoice()
     {
         return _userChoice;
     }
+
+    public string[] GetMainMenu()
+    {
+        return _mainMenu;
+    }
+
+     public string[] GetCreateMenu()
+    {
+        return _createMenu;
+    }
+
+     public string[] GetListMenu()
+    {
+        return _listMenu;
+    }
+
 
 }
