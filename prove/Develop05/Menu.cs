@@ -5,7 +5,7 @@ public class Menu
     private string[] _mainMenu;
     private string[] _createMenu;
     private string[] _listMenu;
-    private int _number = 1;
+    private int _number;
     private int _userChoice;
 
     public Menu()
@@ -17,8 +17,8 @@ public class Menu
 
      public void DisplayMenu(string[] array) //Displays the menu
     {
-        Console.WriteLine();
-        Console.WriteLine("Menu Options:");
+        _number = 1;
+        
         //loops through _menuOptions and displays each option with a number.
         foreach (string item in array)
         {
@@ -29,7 +29,7 @@ public class Menu
         _userChoice = int.Parse(Console.ReadLine());
         //need error handling for wrong type entered
 
-        Console.Clear();
+        // Console.Clear();
     }
 
     public int GetUserChoice()

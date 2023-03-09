@@ -8,9 +8,11 @@ class Program
         Console.WriteLine();
         Console.WriteLine("Welcome to the Eternal Quest Program!");
         int choice = 0;
+        GoalManager manage = new GoalManager();
+        Menu menu = new Menu();
+        File file = new File();
         while (choice != 6)
         {
-            Menu menu = new Menu();
             string[] main = menu.GetMainMenu();
             string[] create = menu.GetCreateMenu();
             string[] list = menu.GetListMenu();
@@ -19,14 +21,75 @@ class Program
 
             if (choice == 1)//create Goal
             {
-                Console.Write("Create");
-                Thread.Sleep(3000);
+                menu.DisplayMenu(create);
+                int createChoice = menu.GetUserChoice();
+                if (createChoice == 1)//create simple goal
+                {
+                    SimpleGoal simple = new SimpleGoal();
+                    simple.CreateGoal();
+                    manage.AddGoal(simple);
+                }
+
+                else if (createChoice == 2)//create eternal goal
+                {
+                    EternalGoal eternal = new EternalGoal();
+                    eternal.CreateGoal();
+                    manage.AddGoal(eternal);
+                }
+
+                else if (createChoice == 3)//create checkpoint goal
+                {
+                    CheckpointGoal checkpoint = new CheckpointGoal();
+                    checkpoint.CreateGoal();
+                    manage.AddGoal(checkpoint);
+                }
+
+                else
+                {
+                    Console.Write("Oops");
+                    Thread.Sleep(3000);
+                }
+
             }
 
             else if (choice == 2)//List Goals
             {
-                Console.Write("List");
-                Thread.Sleep(3000);
+                menu.DisplayMenu(list);
+                int listChoice = menu.GetUserChoice();
+
+                if (listChoice == 1)//List all goals
+                {   
+                    Console.WriteLine("All of your goals are:");
+                    List<Goal> allGoals = manage.GetGoals();
+                    foreach (Goal eachgoal in allGoals)
+                    {
+                        eachgoal.DisplayGoal();
+                    }
+                }
+                
+                else if (listChoice == 2)//List simple goals
+                {
+                    Console.Write("List Simple");
+                    Thread.Sleep(3000); 
+                }
+
+                else if (listChoice == 3)//List eternal goals
+                {
+                    Console.Write("List Eternal");
+                    Thread.Sleep(3000);
+                }
+
+                else if (listChoice == 4)//List checkpoint goals
+                {
+                    Console.Write("List Checkpoint");
+                    Thread.Sleep(3000);
+                }
+
+                else
+                {
+                    Console.Write("Oops");
+                    Thread.Sleep(3000);
+                }
             }
 
             else if (choice == 3)//Save Goals

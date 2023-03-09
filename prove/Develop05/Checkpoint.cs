@@ -1,34 +1,39 @@
 using System;
 
-public class Checkpoint : Goal
+public class CheckpointGoal : Goal
 {
     private int _currentNumber;
     private int _goalNumber;
 
-    public Checkpoint() : base()
+    public CheckpointGoal() : base()
     {
        
     }
 
     public override void CreateGoal()
     {
-
-    }
-
-    public override void RecordEvent()
-    {
-
+        Console.Clear();
+        Console.Write("What is the name of your goal? ");
+        _goalName = Console.ReadLine();
+        Console.Write("What is a short description of your goal? ");
+        _goalDescription = Console.ReadLine();
+        Console.Write("How many points will be associated with this goal?");
+        _goalPoints = int.Parse(Console.ReadLine());
     }
 
     public override void IsComplete()
     {
-
+        _isComplete = true;
     }
 
-    public override void DisplayGoalList()
+    public override void DisplayGoal()
     {
 
     }
-
+    
+    public override void RecordEvent()
+    {
+        
+    }
 
 }
