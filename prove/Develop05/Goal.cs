@@ -2,7 +2,7 @@ using System;
 
 public abstract class Goal
 {
-    protected string _goalType;
+    protected string _goalType; 
     protected string _goalName;
     protected string _goalDescription;
     protected int _goalPoints; 
@@ -15,6 +15,7 @@ public abstract class Goal
     }
    
 
+
     public abstract void CreateGoal();
     
     public abstract void RecordEvent();
@@ -22,6 +23,10 @@ public abstract class Goal
     public abstract void IsComplete();
 
     public abstract void DisplayGoal();
+
+    public abstract string Serialize();
+
+    public abstract void Deserialize(string[] goal);
     
     
 

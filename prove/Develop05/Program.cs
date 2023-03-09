@@ -14,13 +14,12 @@ class Program
         while (choice != 6)
         {
             string[] main = menu.GetMainMenu();
-            string[] create = menu.GetCreateMenu();
-            string[] list = menu.GetListMenu();
             menu.DisplayMenu(main);
             choice = menu.GetUserChoice();
 
             if (choice == 1)//create Goal
             {
+                string[] create = menu.GetCreateMenu();
                 menu.DisplayMenu(create);
                 int createChoice = menu.GetUserChoice();
                 if (createChoice == 1)//create simple goal
@@ -28,6 +27,7 @@ class Program
                     SimpleGoal simple = new SimpleGoal();
                     simple.CreateGoal();
                     manage.AddGoal(simple);
+                    
                 }
 
                 else if (createChoice == 2)//create eternal goal
@@ -54,6 +54,7 @@ class Program
 
             else if (choice == 2)//List Goals
             {
+                string[] list = menu.GetListMenu();
                 menu.DisplayMenu(list);
                 int listChoice = menu.GetUserChoice();
 
@@ -94,6 +95,9 @@ class Program
 
             else if (choice == 3)//Save Goals
             {
+                Console.Write("Please enter the file name where you would like to save your goals: ");
+                string filename = Console.ReadLine();
+                manage.SaveGoals(filename);
                 Console.Write("Save");
                 Thread.Sleep(3000);
             }
