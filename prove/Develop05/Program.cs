@@ -10,7 +10,6 @@ class Program
         int choice = 0;
         GoalManager manage = new GoalManager();
         Menu menu = new Menu();
-        File file = new File();
         while (choice != 6)
         {
             string[] main = menu.GetMainMenu();
@@ -27,7 +26,7 @@ class Program
                     SimpleGoal simple = new SimpleGoal();
                     simple.CreateGoal();
                     manage.AddGoal(simple);
-                    
+
                 }
 
                 else if (createChoice == 2)//create eternal goal
@@ -104,6 +103,9 @@ class Program
 
             else if (choice == 4)//Load goals
             {
+                Console.Write("Please enter the file name from where you would like to load your goals: ");
+                string filename = Console.ReadLine();
+                manage.LoadGoals(filename);
                 Console.Write("Load");
                 Thread.Sleep(3000);
             }

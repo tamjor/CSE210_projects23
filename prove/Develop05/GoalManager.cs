@@ -3,9 +3,7 @@ using System;
 public class GoalManager
 {
     private int _userPoints;
-    private DateTime _date = DateTime.Now;
     private List<Goal> _allGoals = new List<Goal>();
-    private List<string> _allGoalStrings = new List<string>();
 
     public void AddGoal(Goal goal)
     {
@@ -19,14 +17,14 @@ public class GoalManager
 
     public void SaveGoals(string filename)
     {
-        foreach (Goal goal in _allGoals)
+        using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            string item = goal.Serialize();
-            using (StreamWriter outputFile = new StreamWriter(filename))
+            foreach (Goal goal in _allGoals)
             {
+                string item = goal.Serialize();
                 outputFile.WriteLine(item);
+                
             }
-            
         }
     }
 
