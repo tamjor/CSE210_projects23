@@ -23,9 +23,14 @@ public class EternalGoal : Goal
         _goalPoints = int.Parse(Console.ReadLine());
     }
 
-    public override void IsComplete()
+    public override int MarkEvent()
     {
-        _isComplete = false;
+        return _goalPoints;
+    }
+
+    public override void DisplayName()
+    {
+        Console.WriteLine($"{_goalName}");
     }
 
     public override void DisplayGoal()

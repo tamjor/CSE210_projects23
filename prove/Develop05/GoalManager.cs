@@ -4,6 +4,7 @@ public class GoalManager
 {
     private int _userPoints;
     private List<Goal> _allGoals = new List<Goal>();
+    private string[] _goalNames;
 
     public void AddGoal(Goal goal)
     {
@@ -13,6 +14,24 @@ public class GoalManager
     public List<Goal> GetGoals()
     {
         return _allGoals;
+    }
+
+    public void RecordEvent()
+    {
+        Console.WriteLine("Your goals are: ");
+                
+        int number = 1;
+        foreach (Goal goal in _allGoals)
+        {
+            Console.Write($"  {number})");
+            goal.DisplayName();
+            number++;
+        }
+
+        Console.Write("Which goal do you want to record an event for? ");
+        int eventChoice = int.Parse(Console.ReadLine());
+        int points = _allGoals[eventChoice - 1].MarkEvent();
+        _userPoints += points;            
     }
 
     public void SaveGoals(string filename)
@@ -49,7 +68,7 @@ public class GoalManager
             }
             else if (parts[0] == "Checkpoint")
             {
-                CheckpointGoal checkpoint = new CheckpointGoal();
+                ChecklistGoal checkpoint = new ChecklistGoal();
                 checkpoint.Deserialize(parts);
                 AddGoal(checkpoint);
             }

@@ -27,6 +27,7 @@ public class Menu
         }
         Console.Write("Select a choice from the menu:  ");
         _userChoice = int.Parse(Console.ReadLine());
+        Console.WriteLine();
         //need error handling for wrong type entered
 
         // Console.Clear();

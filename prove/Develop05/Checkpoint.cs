@@ -1,6 +1,6 @@
 using System;
 
-public class CheckpointGoal : Goal
+public class ChecklistGoal : Goal
 {
     private int _currentNumber;
     private int _goalNumber;
@@ -8,15 +8,15 @@ public class CheckpointGoal : Goal
     private string _showcomplete;
     private string _checkpointGoalString;
 
-    public CheckpointGoal() : base()
+    public ChecklistGoal() : base()
     {
-       _goalType = "Checkpoint";
+       _goalType = "Checklist";
     }
 
     public override void CreateGoal()
     {
         Console.Clear();
-        Console.WriteLine("Let's create a new checkpoint goal!");
+        Console.WriteLine("Let's create a new checklist goal!");
         Console.WriteLine();
         Console.Write("What is the name of your goal? ");
         _goalName = Console.ReadLine();
@@ -30,24 +30,45 @@ public class CheckpointGoal : Goal
         _bonusPoints = int.Parse(Console.ReadLine());
     }
 
-    public override void IsComplete()
+    public override int MarkEvent()
     {
-        _isComplete = true;
+        if (_currentNumber < _goalNumber-1)
+        {
+            _currentNumber++;
+            return _goalPoints;
+        }
+
+        else if (_currentNumber == _goalNumber-1)
+        {
+            _currentNumber++;
+            _isComplete = true;
+            return _goalPoints + _bonusPoints;
+        }
+
+        else
+        {
+            return 0;
+        }
+        
     }
 
     public override void DisplayGoal()
     {
-        if (_isComplete == false)
+        if (!_isComplete)
         {
             _showcomplete = " ";
-            Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription}) -- Completed {_currentNumber} of {_goalNumber} times.");
         }
 
-        else if (_isComplete == true)
+        else if (_isComplete)
         {
             _showcomplete = "X";
-            Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription}) -- Completed {_currentNumber} of {_goalNumber} times.");
         }
+        Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription}) -- Completed {_currentNumber} of {_goalNumber} times.");
+    }
+
+    public override void DisplayName()
+    {
+        Console.WriteLine($"{_goalName}");
     }
 
     public override void RecordEvent()

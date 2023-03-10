@@ -7,17 +7,21 @@ class Program
         Console.Clear();
         Console.WriteLine();
         Console.WriteLine("Welcome to the Eternal Quest Program!");
+        Console.WriteLine();
         int choice = 0;
         GoalManager manage = new GoalManager();
         Menu menu = new Menu();
         while (choice != 6)
         {
+            Console.WriteLine("What would you like to do? ");
+            Console.WriteLine();
             string[] main = menu.GetMainMenu();
             menu.DisplayMenu(main);
             choice = menu.GetUserChoice();
 
             if (choice == 1)//create Goal
             {
+                Console.WriteLine("Which type of goal would you like to create? ");
                 string[] create = menu.GetCreateMenu();
                 menu.DisplayMenu(create);
                 int createChoice = menu.GetUserChoice();
@@ -38,12 +42,12 @@ class Program
 
                 else if (createChoice == 3)//create checkpoint goal
                 {
-                    CheckpointGoal checkpoint = new CheckpointGoal();
+                    ChecklistGoal checkpoint = new ChecklistGoal();
                     checkpoint.CreateGoal();
                     manage.AddGoal(checkpoint);
                 }
 
-                else
+                else //selection out of range
                 {
                     Console.Write("Oops");
                     Thread.Sleep(3000);
@@ -53,6 +57,7 @@ class Program
 
             else if (choice == 2)//List Goals
             {
+                Console.WriteLine("Which type of goals would you like to view? ");
                 string[] list = menu.GetListMenu();
                 menu.DisplayMenu(list);
                 int listChoice = menu.GetUserChoice();
@@ -85,7 +90,7 @@ class Program
                     Thread.Sleep(3000);
                 }
 
-                else
+                else//selection out of range
                 {
                     Console.Write("Oops");
                     Thread.Sleep(3000);
@@ -97,8 +102,7 @@ class Program
                 Console.Write("Please enter the file name where you would like to save your goals: ");
                 string filename = Console.ReadLine();
                 manage.SaveGoals(filename);
-                Console.Write("Save");
-                Thread.Sleep(3000);
+                
             }
 
             else if (choice == 4)//Load goals
@@ -106,14 +110,14 @@ class Program
                 Console.Write("Please enter the file name from where you would like to load your goals: ");
                 string filename = Console.ReadLine();
                 manage.LoadGoals(filename);
-                Console.Write("Load");
-                Thread.Sleep(3000);
+                
             }
 
             else if (choice == 5)//Record event
             {
-                Console.Write("Record");
-                Thread.Sleep(3000);
+                 
+                
+                
             }
 
             else if (choice == 6)//Quit
@@ -122,7 +126,7 @@ class Program
                 Thread.Sleep(3000);
             }
 
-            else
+            else//selection out of range
             {
                 Console.Write("Oops");
                 Thread.Sleep(3000);

@@ -23,9 +23,10 @@ public class SimpleGoal : Goal
         _goalPoints = int.Parse(Console.ReadLine());
     }
 
-    public override void IsComplete()
+    public override int MarkEvent()
     {
         _isComplete = true;
+        return _goalPoints;
     }
 
     public override void DisplayGoal()
@@ -33,18 +34,23 @@ public class SimpleGoal : Goal
         if (_isComplete == false)
         {
             _showcomplete = " ";
-            Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription})");
+            
         }
         else if (_isComplete == true)
         {
             _showcomplete = "X";
-            Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription})");
         }
+        Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription})");
+    }
+
+    public override void DisplayName()
+    {
+        Console.WriteLine($"{_goalName}");
     }
 
     public override void RecordEvent()
     {
-
+        _isComplete = true;
     }
 
     public override string Serialize()
