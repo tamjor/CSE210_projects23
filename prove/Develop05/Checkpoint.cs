@@ -71,11 +71,6 @@ public class ChecklistGoal : Goal
         Console.WriteLine($"{_goalName}");
     }
 
-    public override void RecordEvent()
-    {
-        
-    }
-
     public override string Serialize()
     {
         return _checkpointGoalString = $"{_goalType}, {_goalName}, {_goalDescription}, {_currentNumber}, {_goalNumber}, {_goalPoints}, {_isComplete}";

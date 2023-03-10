@@ -3,12 +3,12 @@ using System;
 public class SimpleGoal : Goal
 {   private string _showcomplete;
     private string _simpleGoalString;
+    
     public SimpleGoal() : base()
     {
         _goalType = "Simple"; 
         _isComplete = false;
     }
-
 
     public override void CreateGoal()
     {
@@ -48,11 +48,6 @@ public class SimpleGoal : Goal
         Console.WriteLine($"{_goalName}");
     }
 
-    public override void RecordEvent()
-    {
-        _isComplete = true;
-    }
-
     public override string Serialize()
     {
         return _simpleGoalString = $"{_goalType}, {_goalName}, {_goalDescription}, {_goalPoints}, {_isComplete}";
@@ -66,8 +61,4 @@ public class SimpleGoal : Goal
         _goalPoints = int.Parse(goal[3]);
         _isComplete = bool.Parse(goal[4]);
     }
-   
-
-    
-
 }

@@ -7,12 +7,15 @@ class Program
         Console.Clear();
         Console.WriteLine();
         Console.WriteLine("Welcome to the Eternal Quest Program!");
-        Console.WriteLine();
+        
         int choice = 0;
         GoalManager manage = new GoalManager();
         Menu menu = new Menu();
         while (choice != 6)
         {
+            Console.WriteLine();
+            Console.WriteLine($"You have {manage.GetPoints()} points!");
+            Console.WriteLine();
             Console.WriteLine("What would you like to do? ");
             Console.WriteLine();
             string[] main = menu.GetMainMenu();
@@ -115,9 +118,7 @@ class Program
 
             else if (choice == 5)//Record event
             {
-                 
-                
-                
+                 manage.RecordEvent();
             }
 
             else if (choice == 6)//Quit

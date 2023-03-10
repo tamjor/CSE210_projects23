@@ -38,11 +38,6 @@ public class EternalGoal : Goal
         Console.WriteLine($"[ ] {_goalName} ({_goalDescription})");
     }
 
-    public override void RecordEvent()
-    {
-        
-    }
-
     public override string Serialize()
     {
         return _eternalGoalString = $"{_goalType}, {_goalName}, {_goalDescription}, {_goalPoints}, {_isComplete}";

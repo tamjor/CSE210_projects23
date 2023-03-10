@@ -4,7 +4,11 @@ public class GoalManager
 {
     private int _userPoints;
     private List<Goal> _allGoals = new List<Goal>();
-    private string[] _goalNames;
+
+    public int GetPoints()
+    {
+        return _userPoints;
+    }
 
     public void AddGoal(Goal goal)
     {
@@ -21,9 +25,10 @@ public class GoalManager
         Console.WriteLine("Your goals are: ");
                 
         int number = 1;
+        
         foreach (Goal goal in _allGoals)
         {
-            Console.Write($"  {number})");
+            Console.Write($"  {number}) ");
             goal.DisplayName();
             number++;
         }
@@ -38,6 +43,7 @@ public class GoalManager
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
+            outputFile.WriteLine(_userPoints);
             foreach (Goal goal in _allGoals)
             {
                 string item = goal.Serialize();
@@ -50,6 +56,7 @@ public class GoalManager
     public void LoadGoals(string filename)
     {
         string[] lines = System.IO.File.ReadAllLines(filename);
+        _userPoints = int.Parse(lines[0]); 
         foreach (string line in lines)
         {
             string[] parts = line.Split(",");
