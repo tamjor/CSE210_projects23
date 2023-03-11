@@ -7,6 +7,7 @@ public abstract class Goal
     protected string _goalDescription;
     protected int _goalPoints; 
     protected bool _isComplete;
+    protected string _goalString;
     
     public Goal()
     {

@@ -14,6 +14,7 @@ class Program
         int choice = 0;
         GoalManager manage = new GoalManager();
         Menu menu = new Menu();
+
         while (choice != 6)
         {
             Console.Clear();
@@ -89,24 +90,26 @@ class Program
                 {
                     Console.Write($"{filename} already exists. Continuing will overwrite the existing {filename}. Do you wish to continue?(Y/N) ");
                     string proceed = Console.ReadLine();
+                    
                     if (string.Equals(proceed, "y", StringComparison.OrdinalIgnoreCase))
                     {
                         manage.SaveGoals(filename);
                         Console.WriteLine("File Saved");
                         Thread.Sleep(500);
                     }
+                    
                     else
                     {
                         continue;
                     }
-                }
-                
+                }  
             }
 
             else if (choice == 4)//Load goals
             {
                 Console.Write("Loading a file will overwrite any unsaved goals. Do you wish to continue?(Y/N)" );
                 string proceed = Console.ReadLine();
+                
                 if (string.Equals(proceed, "y", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.Write("Please enter the file name from where you would like to load your goals: ");
@@ -115,6 +118,7 @@ class Program
                     Console.WriteLine("File Loaded");
                     Thread.Sleep(500);  
                 }
+                
                 else
                 {
                     continue;

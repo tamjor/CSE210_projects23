@@ -2,8 +2,6 @@ using System;
 
 public class EternalGoal : Goal
 {
-    private string _eternalGoalString;
-
     public EternalGoal() : base()
     {
         _goalType = "Eternal";
@@ -39,7 +37,7 @@ public class EternalGoal : Goal
 
     public override string Serialize()
     {
-        return _eternalGoalString = $"{_goalType},{_goalName},{_goalDescription},{_goalPoints},{_isComplete}";
+        return _goalString = $"{_goalType},{_goalName},{_goalDescription},{_goalPoints},{_isComplete}";
     }
 
     public override void Deserialize(string[] goal)

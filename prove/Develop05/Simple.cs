@@ -2,12 +2,10 @@ using System;
 
 public class SimpleGoal : Goal
 {   private string _showcomplete;
-    private string _simpleGoalString;
     
     public SimpleGoal() : base()
     {
         _goalType = "Simple"; 
-        _isComplete = false;
     }
 
     public override void CreateGoal()
@@ -31,12 +29,12 @@ public class SimpleGoal : Goal
 
     public override void DisplayGoal()
     {
-        if (_isComplete == false)
+        if (!_isComplete)
         {
             _showcomplete = " ";
             
         }
-        else if (_isComplete == true)
+        else if (_isComplete)
         {
             _showcomplete = "X";
         }
@@ -50,7 +48,7 @@ public class SimpleGoal : Goal
 
     public override string Serialize()
     {
-        return _simpleGoalString = $"{_goalType},{_goalName},{_goalDescription},{_goalPoints},{_isComplete}";
+        return _goalString = $"{_goalType},{_goalName},{_goalDescription},{_goalPoints},{_isComplete}";
     }
 
     public override void Deserialize(string[] goal)

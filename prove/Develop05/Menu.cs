@@ -23,6 +23,7 @@ public class Menu
             Console.WriteLine($"  {_number}) {item}");
             _number++;
         }
+        
         Console.WriteLine();
         Console.Write("Select a choice from the menu:  ");
         _userChoice = int.Parse(Console.ReadLine());
