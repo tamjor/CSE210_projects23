@@ -5,6 +5,11 @@ public class GoalManager
     private int _userPoints;
     private List<Goal> _allGoals = new List<Goal>();
 
+    public GoalManager()
+    {
+
+    }
+
     public int GetPoints()
     {
         return _userPoints;
@@ -22,9 +27,9 @@ public class GoalManager
 
     public void RecordEvent()
     {
-        Console.WriteLine("Your goals are: ");
-                
         int number = 1;
+        Console.WriteLine("Your goals are: ");
+        Console.WriteLine();        
         
         foreach (Goal goal in _allGoals)
         {
@@ -32,7 +37,8 @@ public class GoalManager
             goal.DisplayName();
             number++;
         }
-
+        
+        Console.WriteLine();
         Console.Write("Which goal do you want to record an event for? ");
         int eventChoice = int.Parse(Console.ReadLine());
         int points = _allGoals[eventChoice - 1].MarkEvent();
@@ -47,8 +53,7 @@ public class GoalManager
             foreach (Goal goal in _allGoals)
             {
                 string item = goal.Serialize();
-                outputFile.WriteLine(item);
-                
+                outputFile.WriteLine(item); 
             }
         }
     }
@@ -73,11 +78,11 @@ public class GoalManager
                 eternal.Deserialize(parts);
                 AddGoal(eternal);
             }
-            else if (parts[0] == "Checkpoint")
+            else if (parts[0] == "Checklist")
             {
-                ChecklistGoal checkpoint = new ChecklistGoal();
-                checkpoint.Deserialize(parts);
-                AddGoal(checkpoint);
+                ChecklistGoal checklist = new ChecklistGoal();
+                checklist.Deserialize(parts);
+                AddGoal(checklist);
             }
 
         }

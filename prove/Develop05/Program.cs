@@ -6,13 +6,17 @@ class Program
     {
         Console.Clear();
         Console.WriteLine();
-        Console.WriteLine("Welcome to the Eternal Quest Program!");
-        
+        Console.WriteLine("Welcome to the Eternal Quest Program! \nHere you'll be able to create and track your goals while scoring points!");
+        Console.WriteLine();
+        Console.WriteLine("Press ENTER to continue...");
+        Console.ReadLine();
+
         int choice = 0;
         GoalManager manage = new GoalManager();
         Menu menu = new Menu();
         while (choice != 6)
         {
+            Console.Clear();
             Console.WriteLine();
             Console.WriteLine($"You have {manage.GetPoints()} points!");
             Console.WriteLine();
@@ -24,6 +28,7 @@ class Program
 
             if (choice == 1)//create Goal
             {
+                Console.Clear();
                 Console.WriteLine("Which type of goal would you like to create? ");
                 string[] create = menu.GetCreateMenu();
                 menu.DisplayMenu(create);
@@ -33,7 +38,8 @@ class Program
                     SimpleGoal simple = new SimpleGoal();
                     simple.CreateGoal();
                     manage.AddGoal(simple);
-
+                    Console.WriteLine("Goal created");
+                    Thread.Sleep(500);
                 }
 
                 else if (createChoice == 2)//create eternal goal
@@ -41,63 +47,39 @@ class Program
                     EternalGoal eternal = new EternalGoal();
                     eternal.CreateGoal();
                     manage.AddGoal(eternal);
+                    Console.WriteLine("Goal created");
+                    Thread.Sleep(500);
                 }
 
-                else if (createChoice == 3)//create checkpoint goal
+                else if (createChoice == 3)//create checklist goal
                 {
-                    ChecklistGoal checkpoint = new ChecklistGoal();
-                    checkpoint.CreateGoal();
-                    manage.AddGoal(checkpoint);
+                    ChecklistGoal checklist = new ChecklistGoal();
+                    checklist.CreateGoal();
+                    manage.AddGoal(checklist);
+                    Console.WriteLine("Goal created");
+                    Thread.Sleep(500);
                 }
 
                 else //selection out of range
                 {
-                    Console.Write("Oops");
-                    Thread.Sleep(3000);
+                    Console.Write("Oops, that option is not available. Please try again.");
+                    Thread.Sleep(1000);
                 }
-
             }
 
             else if (choice == 2)//List Goals
-            {
-                Console.WriteLine("Which type of goals would you like to view? ");
-                string[] list = menu.GetListMenu();
-                menu.DisplayMenu(list);
-                int listChoice = menu.GetUserChoice();
-
-                if (listChoice == 1)//List all goals
-                {   
-                    Console.WriteLine("All of your goals are:");
-                    List<Goal> allGoals = manage.GetGoals();
-                    foreach (Goal eachgoal in allGoals)
-                    {
-                        eachgoal.DisplayGoal();
-                    }
-                }
-                
-                else if (listChoice == 2)//List simple goals
+            { 
+                Console.Clear();
+                Console.WriteLine("Your goals are:");
+                Console.WriteLine();
+                List<Goal> allGoals = manage.GetGoals();
+                foreach (Goal eachgoal in allGoals)
                 {
-                    Console.Write("List Simple");
-                    Thread.Sleep(3000); 
+                    eachgoal.DisplayGoal();
                 }
-
-                else if (listChoice == 3)//List eternal goals
-                {
-                    Console.Write("List Eternal");
-                    Thread.Sleep(3000);
-                }
-
-                else if (listChoice == 4)//List checkpoint goals
-                {
-                    Console.Write("List Checkpoint");
-                    Thread.Sleep(3000);
-                }
-
-                else//selection out of range
-                {
-                    Console.Write("Oops");
-                    Thread.Sleep(3000);
-                }
+                Console.WriteLine();
+                Console.WriteLine("Press ENTER to continue...");
+                Console.ReadLine(); 
             }
 
             else if (choice == 3)//Save Goals
@@ -105,7 +87,8 @@ class Program
                 Console.Write("Please enter the file name where you would like to save your goals: ");
                 string filename = Console.ReadLine();
                 manage.SaveGoals(filename);
-                
+                Console.WriteLine("File Saved");
+                Thread.Sleep(500);
             }
 
             else if (choice == 4)//Load goals
@@ -113,24 +96,28 @@ class Program
                 Console.Write("Please enter the file name from where you would like to load your goals: ");
                 string filename = Console.ReadLine();
                 manage.LoadGoals(filename);
-                
+                Console.WriteLine("File Loaded");
+                Thread.Sleep(500);  
             }
 
             else if (choice == 5)//Record event
             {
-                 manage.RecordEvent();
+                Console.Clear();
+                manage.RecordEvent();
+                Console.WriteLine("Event Recorded");
+                Thread.Sleep(500);
             }
 
             else if (choice == 6)//Quit
             {
-                Console.Write("Quit");
+                Console.Write("Thank your for using the Eternal Quest Program.");
                 Thread.Sleep(3000);
             }
 
             else//selection out of range
             {
-                Console.Write("Oops");
-                Thread.Sleep(3000);
+                Console.Write("Oops, that option is not available. Please try again.");
+                Thread.Sleep(1000);
             }
         }
     }

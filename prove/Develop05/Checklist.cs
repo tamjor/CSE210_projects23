@@ -6,7 +6,7 @@ public class ChecklistGoal : Goal
     private int _goalNumber;
     private int _bonusPoints;
     private string _showcomplete;
-    private string _checkpointGoalString;
+    private string _checklistGoalString;
 
     public ChecklistGoal() : base()
     {
@@ -49,7 +49,6 @@ public class ChecklistGoal : Goal
         {
             return 0;
         }
-        
     }
 
     public override void DisplayGoal()
@@ -63,7 +62,7 @@ public class ChecklistGoal : Goal
         {
             _showcomplete = "X";
         }
-        Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription}) -- Completed {_currentNumber} of {_goalNumber} times.");
+        Console.WriteLine($"[{_showcomplete}] {_goalName}({_goalPoints}/{_bonusPoints}pts) ({_goalDescription}) -- Completed {_currentNumber} of {_goalNumber} times.");
     }
 
     public override void DisplayName()
@@ -73,7 +72,7 @@ public class ChecklistGoal : Goal
 
     public override string Serialize()
     {
-        return _checkpointGoalString = $"{_goalType}, {_goalName}, {_goalDescription}, {_currentNumber}, {_goalNumber}, {_goalPoints}, {_isComplete}";
+        return _checklistGoalString = $"{_goalType},{_goalName},{_goalDescription},{_currentNumber},{_goalNumber},{_goalPoints},{_bonusPoints},{_isComplete}";
     }
 
     public override void Deserialize(string[] goal)
@@ -84,7 +83,7 @@ public class ChecklistGoal : Goal
         _currentNumber = int.Parse(goal[3]);
         _goalNumber = int.Parse(goal[4]);
         _goalPoints = int.Parse(goal[5]);
-        _isComplete = bool.Parse(goal[6]);
+        _bonusPoints = int.Parse(goal[6]);
+        _isComplete = bool.Parse(goal[7]);
     }
-
 }

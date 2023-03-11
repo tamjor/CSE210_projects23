@@ -3,7 +3,6 @@ using System;
 public class EternalGoal : Goal
 {
     private string _eternalGoalString;
-    // private int _numberComplete;
 
     public EternalGoal() : base()
     {
@@ -35,12 +34,12 @@ public class EternalGoal : Goal
 
     public override void DisplayGoal()
     {
-        Console.WriteLine($"[ ] {_goalName} ({_goalDescription})");
+        Console.WriteLine($"[ ] {_goalName}({_goalPoints}pts) ({_goalDescription})");
     }
 
     public override string Serialize()
     {
-        return _eternalGoalString = $"{_goalType}, {_goalName}, {_goalDescription}, {_goalPoints}, {_isComplete}";
+        return _eternalGoalString = $"{_goalType},{_goalName},{_goalDescription},{_goalPoints},{_isComplete}";
     }
 
     public override void Deserialize(string[] goal)

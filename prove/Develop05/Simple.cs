@@ -40,7 +40,7 @@ public class SimpleGoal : Goal
         {
             _showcomplete = "X";
         }
-        Console.WriteLine($"[{_showcomplete}] {_goalName} ({_goalDescription})");
+        Console.WriteLine($"[{_showcomplete}] {_goalName}({_goalPoints}pts) ({_goalDescription})");
     }
 
     public override void DisplayName()
@@ -50,7 +50,7 @@ public class SimpleGoal : Goal
 
     public override string Serialize()
     {
-        return _simpleGoalString = $"{_goalType}, {_goalName}, {_goalDescription}, {_goalPoints}, {_isComplete}";
+        return _simpleGoalString = $"{_goalType},{_goalName},{_goalDescription},{_goalPoints},{_isComplete}";
     }
 
     public override void Deserialize(string[] goal)
