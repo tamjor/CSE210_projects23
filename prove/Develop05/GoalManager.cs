@@ -60,6 +60,7 @@ public class GoalManager
 
     public void LoadGoals(string filename)
     {
+        _allGoals = new List<Goal>();
         string[] lines = System.IO.File.ReadAllLines(filename);
         _userPoints = int.Parse(lines[0]); 
         foreach (string line in lines)
@@ -71,7 +72,7 @@ public class GoalManager
             {
                 goal = new SimpleGoal();
             }
-            
+
             else if (parts[0] == "Eternal")
             {
                 goal = new EternalGoal();
