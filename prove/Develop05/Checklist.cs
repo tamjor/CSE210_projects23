@@ -6,7 +6,6 @@ public class ChecklistGoal : Goal
     private int _goalNumber;
     private int _bonusPoints;
     private string _showcomplete;
-    private string _checklistGoalString;
 
     public ChecklistGoal() : base()
     {
@@ -72,7 +71,7 @@ public class ChecklistGoal : Goal
 
     public override string Serialize()
     {
-        return _checklistGoalString = $"{_goalType},{_goalName},{_goalDescription},{_currentNumber},{_goalNumber},{_goalPoints},{_bonusPoints},{_isComplete}";
+        return _goalString = $"{_goalType},{_goalName},{_goalDescription},{_currentNumber},{_goalNumber},{_goalPoints},{_bonusPoints},{_isComplete}";
     }
 
     public override void Deserialize(string[] goal)
