@@ -30,41 +30,40 @@ class Program
             {
                 Console.Clear();
                 Console.WriteLine("Which type of goal would you like to create? ");
+                Console.WriteLine();
                 string[] create = menu.GetCreateMenu();
                 menu.DisplayMenu(create);
                 int createChoice = menu.GetUserChoice();
-                if (createChoice == 1)//create simple goal
+                
+                Goal goal;
+                
+                if (createChoice == 1)
                 {
-                    SimpleGoal simple = new SimpleGoal();
-                    simple.CreateGoal();
-                    manage.AddGoal(simple);
-                    Console.WriteLine("Goal created");
-                    Thread.Sleep(500);
+                    goal = new SimpleGoal(); //set goal to Simplegoal subclass
                 }
 
-                else if (createChoice == 2)//create eternal goal
+                else if (createChoice == 2)
                 {
-                    EternalGoal eternal = new EternalGoal();
-                    eternal.CreateGoal();
-                    manage.AddGoal(eternal);
-                    Console.WriteLine("Goal created");
-                    Thread.Sleep(500);
+                    goal = new EternalGoal(); //set goal to EternalGoal subclass
                 }
 
-                else if (createChoice == 3)//create checklist goal
+                else if (createChoice == 3)
                 {
-                    ChecklistGoal checklist = new ChecklistGoal();
-                    checklist.CreateGoal();
-                    manage.AddGoal(checklist);
-                    Console.WriteLine("Goal created");
-                    Thread.Sleep(500);
+                    goal = new ChecklistGoal(); //set goal to Checklistgoal subclass
                 }
 
                 else //selection out of range
                 {
                     Console.Write("Oops, that option is not available. Please try again.");
                     Thread.Sleep(1000);
+                    continue;
                 }
+                
+                //create new goal based on subclass
+                goal.CreateGoal();
+                manage.AddGoal(goal);
+                Console.WriteLine("Goal created");
+                Thread.Sleep(500);
             }
 
             else if (choice == 2)//List Goals

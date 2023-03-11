@@ -64,26 +64,31 @@ public class GoalManager
         _userPoints = int.Parse(lines[0]); 
         foreach (string line in lines)
         {
+            Goal goal;
+
             string[] parts = line.Split(",");
             if (parts[0] == "Simple")
             {
-                SimpleGoal simple = new SimpleGoal();
-                simple.Deserialize(parts);
-                AddGoal(simple);
-
+                goal = new SimpleGoal();
             }
+            
             else if (parts[0] == "Eternal")
             {
-                EternalGoal eternal = new EternalGoal();
-                eternal.Deserialize(parts);
-                AddGoal(eternal);
+                goal = new EternalGoal();
             }
+
             else if (parts[0] == "Checklist")
             {
-                ChecklistGoal checklist = new ChecklistGoal();
-                checklist.Deserialize(parts);
-                AddGoal(checklist);
+                goal = new ChecklistGoal();
             }
+
+            else
+            {
+                continue;
+            }
+
+            goal.Deserialize(parts);
+            AddGoal(goal);
 
         }
     }
