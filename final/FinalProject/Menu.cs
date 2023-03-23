@@ -3,19 +3,19 @@ using System;
 public class Menu
 {
     private string[] _mainMenu;
-    private string[] _symptomMenu;
+    private string[] _systemMenu;
     private string[] _triggerMenu;
-    private string[] _symptomSeverity;
-    private string[] _listSymptoms;
+    private string[] _severityMenu;
+    private string[] _symptomMenu;
     private int _userChoice;
 
     public Menu()
     {
         _mainMenu = new string[] {"Add Symptom", "Save File", "Load File", "List Symptoms", "Quit Program"};
-        _symptomMenu = new string[] {"Muscular", "Respiratory"};
-        _triggerMenu = new string[] {"Activity", "Environmental", "Food", "Medicine", "Other"};
-        _symptomSeverity = new string[] {"Mild", "", "Moderate", "", "Severe"};
-        _listSymptoms = new string[] {"System", "Trigger", "Date"};
+        _systemMenu = new string[] {"Muscular", "Respiratory"};
+        _triggerMenu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
+        _severityMenu = new string[] {"Mild", "", "Moderate", "", "Severe"};
+        _symptomMenu = new string[] {"System", "Trigger", "Date"};
     }
 
 
@@ -23,10 +23,14 @@ public class Menu
     {
         if (menu == "main")
             return _mainMenu;
-        else if (menu == "symptom")
-            return _symptomMenu;
+        else if (menu == "system")
+            return _systemMenu;
         else if (menu == "trigger")
             return _triggerMenu;
+        else if (menu == "severity")
+            return _severityMenu;
+        else if (menu == "symptoms")
+            return _symptomMenu;
         else
             return new string[] {"Oops, the argument for this menu was invalid."};
     }
@@ -36,7 +40,7 @@ public class Menu
         int number = 1;
         
         Console.WriteLine();
-        Console.WriteLine("Menu Options:");
+        Console.WriteLine("Options:");
         Console.WriteLine();
         //loops through the menu array and displays each option with an incremental number.
         foreach (string item in menu)
@@ -46,7 +50,7 @@ public class Menu
         }
         
         Console.WriteLine();
-        Console.Write("Select a choice from the menu:  ");
+        Console.Write("Select an option from the menu:  ");
         _userChoice = int.Parse(Console.ReadLine());
         Console.WriteLine();
         //need error handling for wrong Type entered
