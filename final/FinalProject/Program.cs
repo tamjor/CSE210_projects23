@@ -69,6 +69,7 @@ class Program
                         newTrigger = false;
                     }
                 }
+                
                 trigger.AddTrigger();
            }
 

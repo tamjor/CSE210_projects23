@@ -2,20 +2,17 @@ using System;
 
 public class SymptomManager
 {
-    private List(Symptom) _symptoms =  new List(Symptom)();
-    private BodySystem _system;
-    private Trigger _trigger;
-
+    private SymptomTriggerPair _symptomTriggerPair;
 
     
-    public BodySystem GetSystem()
+    public void SetSymptomTriggerPair(SymptomTriggerPair pair)
     {
-        return _system;
+        _symptomTriggerPair = pair;
     }
 
-    public Trigger GetTrigger()
+    public SymptomTriggerPair GetPair()
     {
-        return _trigger;
+        return _symptomTriggerPair;
     }
 
     public void ModifySymptom()
