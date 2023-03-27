@@ -1,6 +1,6 @@
 using System;
 
-public class SymptomTriggerPair
+public class SymptomTriggerSet
 {
     private Symptom _symptom;
     private List<Trigger> _triggers;

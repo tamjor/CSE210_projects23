@@ -21,76 +21,61 @@ class Program
 
             if (userChoice == 1) //Add Symptom
             {
-                BodySystem bodySystem;
-                Trigger trigger;
-                
-                Console.WriteLine("Which bodily system is being affected? ");
-                string[] systems = menu.GetMenu("system");
-                menu.DisplayMenu(systems);
-                int systemChoice = menu.GetUserChoice();
+                Symptom symptom = new Symptom();
+                SymptomTriggerSet set = new SymptomTriggerSet();
 
-                if (systemChoice == 1)
-                    bodySystem = new MuscularSystem();
-                
-                else if (systemChoice == 2)
-                    bodySystem = new RespiratorySystem();
-                
-                else //selection out of range
-                {
-                    Console.Write("Oops, that option is not available. Please try again.");
-                    Thread.Sleep(1000);
-                    continue;
-                }
-                 
-                //Do stuff with systems
-                bodySystem.AddSystem();
+                symptom.LogSymptom();
+                set.SetSymptom(symptom);
 
                 bool newTrigger = true;
                 while (newTrigger == true)
                 {
-                    Console.WriteLine("What type of trigger would you like to add? ");
-                    string[] triggers = menu.GetMenu("trigger");
-                    menu.DisplayMenu(triggers);
-                    int triggerChoice = menu.GetUserChoice();
+                    Console.WriteLine("Would you like to add a trigger for this symptom(Y/N)? ");
+                    string triggerChoice = Console.ReadLine();
 
-                    if (triggerChoice == 1)
-                        trigger = new ActivityTrigger();
+                    if (triggerChoice == "Y")
+                    {
+                        Trigger trigger = new Trigger();
+                        trigger.LogTrigger();
+                        set.AddTriggerToList(trigger);
+                    }
                     
-                    else if (triggerChoice == 2)
-                        trigger = new EnvironmentalTrigger();
-                    
-                    else if (triggerChoice == 3)
-                        trigger = new FoodTrigger();
-                    
-                    else if (triggerChoice == 4)
-                        trigger = new MedicineTrigger();
-                    else
+                    else 
                     {
                         newTrigger = false;
-                    }
+                    }        
                 }
                 
-                trigger.AddTrigger();
            }
 
-           else if (userChoice == 2) //Save File
+           else if (userChoice == 2) //List Symptoms
            {
             
            }
 
-           else if (userChoice == 3) //Load File
+           else if (userChoice == 3) //Change Symptom End Time
            {
             
            }
 
-           else if (userChoice == 4) //List Symptoms
+           else if (userChoice == 4) //Save File
            {
             
            } 
 
-           else if (userChoice == 5) //Quit Program
+           else if (userChoice == 5) //Load File
            {
             
+           }
+
+           else if (userChoice == 6) //Quit Program
+           {
+            
+           }
+
+           else
+           {
+
            }
             
         }

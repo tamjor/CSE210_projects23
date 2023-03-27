@@ -3,19 +3,19 @@ using System;
 public class Menu
 {
     private string[] _mainMenu;
-    private string[] _systemMenu;
-    private string[] _triggerMenu;
-    private string[] _severityMenu;
-    private string[] _symptomMenu;
+    // private string[] _systemMenu;
+    // private string[] _triggerMenu;
+    // private string[] _severityMenu;
+    private string[] _listingMenu;
     private int _userChoice;
 
     public Menu()
     {
-        _mainMenu = new string[] {"Add Symptom", "Save File", "Load File", "List Symptoms", "Quit Program"};
-        _systemMenu = new string[] {"Muscular", "Respiratory"};
-        _triggerMenu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
-        _severityMenu = new string[] {"Mild", "", "Moderate", "", "Severe"};
-        _symptomMenu = new string[] {"System", "Trigger", "Date"};
+        _mainMenu = new string[] {"Add Symptom", "List Symptoms", "Add Symptom End Time", "Save File", "Load File", "Quit Program"};
+        // _systemMenu = new string[] {"Muscular", "Respiratory"};
+        // _triggerMenu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
+        // _severityMenu = new string[] {"Mild", "", "Moderate", "", "Severe"};
+        _listingMenu = new string[] {"System", "Trigger", "Date"};
     }
 
 
@@ -23,14 +23,14 @@ public class Menu
     {
         if (menu == "main")
             return _mainMenu;
-        else if (menu == "system")
-            return _systemMenu;
-        else if (menu == "trigger")
-            return _triggerMenu;
-        else if (menu == "severity")
-            return _severityMenu;
+        // else if (menu == "system")
+        //     return _systemMenu;
+        // else if (menu == "trigger")
+        //     return _triggerMenu;
+        // else if (menu == "severity")
+        //     return _severityMenu;
         else if (menu == "symptoms")
-            return _symptomMenu;
+            return _listingMenu;
         else
             return new string[] {"Oops, the argument for this menu was invalid."};
     }

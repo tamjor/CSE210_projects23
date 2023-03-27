@@ -2,17 +2,12 @@ using System;
 
 public class SymptomManager
 {
-    private SymptomTriggerPair _symptomTriggerPair;
+    private List<SymptomTriggerSet> _symptomTriggerSets;
 
     
-    public void SetSymptomTriggerPair(SymptomTriggerPair pair)
+    public void AddSymptomTriggerPair(SymptomTriggerSet set)
     {
-        _symptomTriggerPair = pair;
-    }
-
-    public SymptomTriggerPair GetPair()
-    {
-        return _symptomTriggerPair;
+        _symptomTriggerSets.Add(set);
     }
 
     public void ModifySymptom()
@@ -20,10 +15,7 @@ public class SymptomManager
 
     }
 
-    public void ModifyTrigger()
-    {
-        
-    }
+
 
     public void SaveCombined()
     {
