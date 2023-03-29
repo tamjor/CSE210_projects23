@@ -5,7 +5,7 @@ public class SymptomManager
     private List<SymptomTriggerSet> _symptomTriggerSets;
 
     
-    public void AddSymptomTriggerPair(SymptomTriggerSet set)
+    public void AddSymptomTriggerSet(SymptomTriggerSet set)
     {
         _symptomTriggerSets.Add(set);
     }
@@ -15,6 +15,10 @@ public class SymptomManager
 
     }
 
+    public List<SymptomTriggerSet> GetSymptomTriggerSet()
+    {
+        return _symptomTriggerSets;
+    } 
 
 
     public void SaveCombined()

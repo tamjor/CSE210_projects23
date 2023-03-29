@@ -14,7 +14,7 @@ public class Menu
         else if (menu == "trigger")
             _menu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
         else if (menu == "order")
-            _menu = new string[] {"System", "Trigger", "Date"};
+            _menu = new string[] {"By Symptom Type", "By Trigger Type", "By Symptom Start Date"};
     }
 
 
@@ -44,6 +44,7 @@ public class Menu
         return _userChoice;
     }
 
+    
 
 
 }

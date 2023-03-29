@@ -44,7 +44,12 @@ public class Symptom
         }
     }
 
-    public void SetSymptomEnd(string symptomEnd)
+    public string GetSymptomEnd()
+    {
+        return _symptomEnd;
+    }
+
+    public void SetSymptomEnd()
     {
         Console.Write("When did the symptom end?(MM/DD/HH/MM) ");
         _symptomEnd = Console.ReadLine();
@@ -67,6 +72,7 @@ public class Symptom
 
     public void DisplaySymptom()
     {
+        Console.WriteLine();
         Console.WriteLine ($">>Symptom<<\nType: {_symptomType}\nLocaction: {_symptomLocation}\nDescription: {_symptomDescription}\nSeverity: {_symptomSeverity}\nDuration: {_symptomStart} - {_symptomEnd}");
     }
 }

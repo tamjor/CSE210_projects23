@@ -37,6 +37,7 @@
 
     public void DisplayTrigger()
     {
-      Console.WriteLine($">>Trigger<<\nType: {_triggerType}\nDescription: {_triggerDescription}\nIntensity: {_triggerIntensity}\nOccurance: {_triggerOccurance}");
+      Console.WriteLine();
+      Console.WriteLine($"    >>Trigger<<\nType: {_triggerType}\n    Description: {_triggerDescription}\n    Intensity: {_triggerIntensity}\n    Occurance: {_triggerOccurance}");
     }
  }
