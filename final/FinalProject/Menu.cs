@@ -2,40 +2,23 @@ using System;
 
 public class Menu
 {
-    private string[] _mainMenu;
-    private string[] _symptomMenu;
-    // private string[] _triggerMenu;
-    // private string[] _severityMenu;
-    private string[] _listingMenu;
+    private string[] _menu;
     private int _userChoice;
 
-    public Menu()
-    {
-        _mainMenu = new string[] {"Add Symptom", "List Symptoms", "Add Symptom End Time", "Save File", "Load File", "Quit Program"};
-        _symptomMenu = new string[] {"Muscular", "Respiratory"};
-        // _triggerMenu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
-        // _severityMenu = new string[] {"Mild", "", "Moderate", "", "Severe"};
-        _listingMenu = new string[] {"System", "Trigger", "Date"};
-    }
-
-
-    public string[] GetMenu(string menu)
+    public Menu(string menu)
     {
         if (menu == "main")
-            return _mainMenu;
-        // else if (menu == "system")
-        //     return _systemMenu;
-        // else if (menu == "trigger")
-        //     return _triggerMenu;
-        // else if (menu == "severity")
-        //     return _severityMenu;
-        else if (menu == "symptoms")
-            return _listingMenu;
-        else
-            return new string[] {"Oops, the argument for this menu was invalid."};
+            _menu = new string[] {"Add Symptom", "List Symptoms", "Add Symptom End Time", "Save File", "Load File", "Quit Program"};
+        else if (menu == "sypmtom")
+            _menu = new string[] {"Muscular", "Respiratory"};
+        else if (menu == "trigger")
+            _menu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
+        else if (menu == "order")
+            _menu = new string[] {"System", "Trigger", "Date"};
     }
 
-    public void DisplayMenu(string[] menu) //Displays the menu
+
+    public void DisplayMenu() //Displays the menu
     {
         int number = 1;
         
@@ -43,7 +26,7 @@ public class Menu
         Console.WriteLine("Options:");
         Console.WriteLine();
         //loops through the menu array and displays each option with an incremental number.
-        foreach (string item in menu)
+        foreach (string item in _menu)
         {
             Console.WriteLine($"  {number}) {item}");
             number++;

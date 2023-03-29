@@ -11,13 +11,12 @@ class Program
         Console.WriteLine("");
 
         bool run = true;
-        Menu menu = new Menu();
+        Menu main = new Menu("main");
 
         while (run == true)
         {
-            string[] main = menu.GetMenu("main");
-            menu.DisplayMenu(main);
-            int userChoice = menu.GetUserChoice();
+            main.DisplayMenu();
+            int userChoice = main.GetUserChoice();
 
             if (userChoice == 1) //Add Symptom
             {

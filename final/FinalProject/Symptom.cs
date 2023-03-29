@@ -13,20 +13,31 @@ public class Symptom
 
     public void LogSymptom()
     {
-        Menu menu = new Menu();
+        Menu menu = new Menu("symptom");
+        
         Console.Write("What type of symptom are you experiencing? ");
-        _symptomType = Console.ReadLine();
-                Console.Write("Where is the symptom located? ");
+        menu.DisplayMenu();
+        int typeChoice = menu.GetUserChoice();
+        if (typeChoice == 1)
+            _symptomType = "Muscular";
+        else if (typeChoice == 2)
+            _symptomType = "Respiratory";
+        
+        Console.Write("Where is the symptom located? ");
         _symptomLocation = Console.ReadLine();
-                Console.Write("Give a brief description of the symptom: ");
+
+        Console.Write("Give a brief description of the symptom: ");
         _symptomDescription = Console.ReadLine();
-                Console.Write("How severe is the symptom on a scale of one to ten? ");
+
+        Console.Write("How severe is the symptom on a scale of one to ten? ");
         _symptomSeverity = Console.ReadLine();
-                Console.Write("When did the symptom start?(MM/DD/HH/MM) ");
+
+        Console.Write("When did the symptom start?(MM/DD/HH/MM) ");
         _symptomStart = Console.ReadLine();
+
         Console.Write("Has the symptom ended?(Y/N) ");
         string userChoice = Console.ReadLine();
-        if (userChoice == "Y")
+        if (userChoice == "y")
         {
             Console.Write("When did the symptom end?(MM/DD/HH/MM) ");
             _symptomEnd = Console.ReadLine();
@@ -56,6 +67,6 @@ public class Symptom
 
     public void DisplaySymptom()
     {
-        Console.WriteLine ($"Type: {_symptomType}\nLocaction: {_symptomLocation}\nDescription: {_symptomDescription}\nSeverity: {_symptomSeverity}\nDuration: {_symptomStart} - {_symptomEnd}");
+        Console.WriteLine ($">>Symptom<<\nType: {_symptomType}\nLocaction: {_symptomLocation}\nDescription: {_symptomDescription}\nSeverity: {_symptomSeverity}\nDuration: {_symptomStart} - {_symptomEnd}");
     }
 }

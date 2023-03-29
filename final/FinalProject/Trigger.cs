@@ -10,6 +10,7 @@
 
     public void LogTrigger()
     {
+        Menu menu = new Menu("trigger");     
         Console.Write("What type of trigger would you like to add? ");
         _triggerType = Console.ReadLine();
         Console.Write("How would you rank the intensity of this trigger on a scale of 1 to 10? ");
@@ -32,5 +33,10 @@
       _triggerDescription = trigger[1];
       _triggerIntensity = trigger[2];
       _triggerOccurance = trigger[3];
+    }
+
+    public void DisplayTrigger()
+    {
+      Console.WriteLine($">>Trigger<<\nType: {_triggerType}\nDescription: {_triggerDescription}\nIntensity: {_triggerIntensity}\nOccurance: {_triggerOccurance}");
     }
  }

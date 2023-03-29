@@ -1,2 +1,0 @@
-Simple,  Simple Goal,  Do something once., 10, False
-Eternal, Eternal Goal, Do something forever., 20, False
