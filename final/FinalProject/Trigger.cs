@@ -5,7 +5,7 @@
     protected string _triggerType;
     private string _triggerIntensity;
     protected string _triggerDescription;
-    protected string _triggerTiming;
+    protected string _triggerOccurance;
 
 
     public void LogTrigger()
@@ -17,8 +17,20 @@
             Console.Write("Give a brief description of the trigger: ");
       _triggerDescription = Console.ReadLine();
             Console.Write("When did the trigger occur(MM/DD/HH/MM)? ");
-      _triggerTiming = Console.ReadLine();
-   }
-
+      _triggerOccurance = Console.ReadLine();
+    } 
     
+    public string Serialize()
+    {
+      
+      return $"{_triggerType}|{_triggerDescription}|{_triggerIntensity}|{_triggerOccurance}";
+    }
+
+    public void Deserialize(string[] trigger)
+    {
+      _triggerType = trigger[0];
+      _triggerDescription = trigger[1];
+      _triggerIntensity = trigger[2];
+      _triggerOccurance = trigger[3];
+    }
  }

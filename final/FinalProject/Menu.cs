@@ -3,7 +3,7 @@ using System;
 public class Menu
 {
     private string[] _mainMenu;
-    // private string[] _systemMenu;
+    private string[] _symptomMenu;
     // private string[] _triggerMenu;
     // private string[] _severityMenu;
     private string[] _listingMenu;
@@ -12,7 +12,7 @@ public class Menu
     public Menu()
     {
         _mainMenu = new string[] {"Add Symptom", "List Symptoms", "Add Symptom End Time", "Save File", "Load File", "Quit Program"};
-        // _systemMenu = new string[] {"Muscular", "Respiratory"};
+        _symptomMenu = new string[] {"Muscular", "Respiratory"};
         // _triggerMenu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
         // _severityMenu = new string[] {"Mild", "", "Moderate", "", "Severe"};
         _listingMenu = new string[] {"System", "Trigger", "Date"};
