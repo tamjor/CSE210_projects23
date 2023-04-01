@@ -14,7 +14,7 @@ public class Menu
         else if (menu == "trigger")
             _menu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
         else if (menu == "order")
-            _menu = new string[] {"By Symptom Type", "By Trigger Type", "By Symptom Start Date"};
+            _menu = new string[] {"By Order Added", "By Symptom Type"};
     }
 
 

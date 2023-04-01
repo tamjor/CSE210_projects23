@@ -8,8 +8,9 @@ public class Symptom
     protected string _symptomSeverity;
     protected string _symptomStart;
     protected string _symptomEnd;
-    protected string _symptomDuration;
+    
 
+   
 
     public void LogSymptom()
     {
@@ -74,5 +75,10 @@ public class Symptom
     {
         Console.WriteLine();
         Console.WriteLine ($">>Symptom<<\nType: {_symptomType}\nLocaction: {_symptomLocation}\nDescription: {_symptomDescription}\nSeverity: {_symptomSeverity}\nDuration: {_symptomStart} - {_symptomEnd}");
+    }
+
+    public string GetSymptomType()
+    {
+        return _symptomType;
     }
 }
