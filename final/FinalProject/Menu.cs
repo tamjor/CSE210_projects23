@@ -9,12 +9,14 @@ public class Menu
     {
         if (menu == "main")
             _menu = new string[] {"Add Symptom", "List Symptoms", "Add Symptom End Time", "Save File", "Load File", "Quit Program"};
-        else if (menu == "sypmtom")
+        else if (menu == "symptom")
             _menu = new string[] {"Muscular", "Respiratory"};
         else if (menu == "trigger")
             _menu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
         else if (menu == "order")
             _menu = new string[] {"By Order Added", "By Symptom Type"};
+        else
+            throw new ArgumentNullException("menu");
     }
 
 
@@ -36,7 +38,7 @@ public class Menu
         Console.Write("Select an option from the menu:  ");
         _userChoice = int.Parse(Console.ReadLine());
         Console.WriteLine();
-        //need error handling for wrong Type entered
+        Console.WriteLine();
     }
 
     public int GetUserChoice()

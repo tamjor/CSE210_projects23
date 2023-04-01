@@ -4,6 +4,11 @@ public class SymptomManager
 {
     private List<SymptomTriggerSet> _symptomTriggerSets;
 
+    public SymptomManager()
+    {
+        _symptomTriggerSets = new List<SymptomTriggerSet>();
+    }
+
     
     public void AddSymptomTriggerSet(SymptomTriggerSet set)
     {
@@ -20,12 +25,19 @@ public class SymptomManager
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
+            bool tilda = false;
             foreach (SymptomTriggerSet symptomItem in _symptomTriggerSets)  
             {
                 Symptom symptom = symptomItem.GetSymptom();
                 string serializedSymptom = symptom.Serialize();
-                outputFile.Write($"{serializedSymptom}");
-               
+                if (tilda == false)
+                {
+                    outputFile.Write($"{serializedSymptom}");
+                    tilda = true;
+                }
+                else
+                outputFile.Write($"~{serializedSymptom}");
+                
                 List<Trigger> triggers = symptomItem.GetTriggers();
                 foreach (Trigger triggerItem in triggers)
                 {
@@ -65,7 +77,7 @@ public class SymptomManager
                     set.AddTriggerToList(trigger);
                 }
             }
-            
+
             AddSymptomTriggerSet(set);
 
         }

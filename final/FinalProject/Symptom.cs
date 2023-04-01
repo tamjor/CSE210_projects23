@@ -14,6 +14,7 @@ public class Symptom
 
     public void LogSymptom()
     {
+        Console.Clear();
         Menu menu = new Menu("symptom");
         
         Console.Write("What type of symptom are you experiencing? ");
@@ -38,7 +39,7 @@ public class Symptom
 
         Console.Write("Has the symptom ended?(Y/N) ");
         string userChoice = Console.ReadLine();
-        if (userChoice == "y")
+        if (string.Equals(userChoice, "y", StringComparison.OrdinalIgnoreCase))
         {
             Console.Write("When did the symptom end?(MM/DD/HH/MM) ");
             _symptomEnd = Console.ReadLine();

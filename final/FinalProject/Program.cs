@@ -33,7 +33,7 @@ class Program
                     Console.WriteLine("Would you like to add a trigger for this symptom(Y/N)? ");
                     string triggerChoice = Console.ReadLine();
 
-                    if (triggerChoice == "Y")
+                    if (string.Equals(triggerChoice, "y", StringComparison.OrdinalIgnoreCase))
                     {
                         Trigger trigger = new Trigger();
                         trigger.LogTrigger();
@@ -45,6 +45,7 @@ class Program
                         newTrigger = false;
                     }        
                 }
+                manager.AddSymptomTriggerSet(set);
                 
             }
 
@@ -61,7 +62,10 @@ class Program
                     foreach (SymptomTriggerSet set in sets)
                     {   
                         set.DisplaySet();
+                        Console.WriteLine();
                     }
+                    Console.Write("Press ENTER to continue.");
+                    Console.ReadLine();
                 }
               
                 else if (orderChoice == 2 )//By Symptom Type
@@ -102,12 +106,13 @@ class Program
                 int number = 1;
                 foreach (Symptom item in noEnds)
                 {
-                    Console.WriteLine($"  {number}) {item}");
+                    string type = item.GetSymptomType();
+                    Console.WriteLine($"  {number}) {type}");
                     number++;
                 }
                 Console.Write("To which Symptom would you like to add a End time? ");
                 int endChoice = int.Parse(Console.ReadLine());
-                noEnds[endChoice].SetSymptomEnd();
+                noEnds[endChoice-1].SetSymptomEnd();
                 
             }
 
