@@ -2,12 +2,12 @@ using System;
 
 public class Symptom
 {
-    protected string _symptomType;
-    protected string _symptomLocation;
-    protected string _symptomDescription;
-    protected string _symptomSeverity;
-    protected string _symptomStart;
-    protected string _symptomEnd;
+    private string _symptomType;
+    private string _symptomLocation;
+    private string _symptomDescription;
+    private string _symptomSeverity;
+    private string _symptomStart;
+    private string _symptomEnd;
 
 
     public void LogSymptom()

@@ -2,9 +2,9 @@ using System;
 
 public class Trigger
 {
-    protected string _triggerType;
-    protected string _triggerDescription;
-    protected string _triggerOccurance;
+    private string _triggerType;
+    private string _triggerDescription;
+    private string _triggerOccurance;
 
 
     public void LogTrigger()
