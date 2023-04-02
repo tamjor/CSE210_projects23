@@ -14,6 +14,7 @@ public class SymptomTriggerSet
     {
         _triggers.Add(trigger);
     }
+
     public void SetSymptom(Symptom symptom)
     {
         _symptom = symptom;
@@ -23,8 +24,6 @@ public class SymptomTriggerSet
     {
         return _symptom;
     }
-
-   
 
     public List<Trigger> GetTriggers()
     {

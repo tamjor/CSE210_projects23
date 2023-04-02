@@ -9,22 +9,31 @@ public class Trigger
 
     public void LogTrigger()
     {
-        Menu menu = new Menu("trigger");     
+        Menu menu = new Menu("trigger"); 
+        
+        Console.WriteLine();    
         Console.Write("What type of trigger would you like to add? ");
+        
         menu.DisplayMenu();
         int typeChoice = menu.GetUserChoice();
+        
         if (typeChoice == 1)
             _triggerType = "Activity";
+        
         else if (typeChoice == 2)
             _triggerType = "Environmental";
+        
         else if (typeChoice == 3)
             _triggerType = "Food";
+        
         else if (typeChoice == 4)
             _triggerType = "Medicine";
 
-        
+        Console.WriteLine();
         Console.Write("Give a brief description of the trigger: ");
         _triggerDescription = Console.ReadLine();
+        
+        Console.WriteLine();
         Console.Write("When did the trigger occur(MM/DD/HH/MM)? ");
         _triggerOccurance = Console.ReadLine();
     } 

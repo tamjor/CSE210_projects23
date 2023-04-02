@@ -25,9 +25,9 @@ public class SymptomManager
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            foreach (SymptomTriggerSet symptomItem in _symptomTriggerSets)  
+            foreach (SymptomTriggerSet symptomItem in _symptomTriggerSets)  //loops through Sets
             {
-                Symptom symptom = symptomItem.GetSymptom();
+                Symptom symptom = symptomItem.GetSymptom(); 
                 string serializedSymptom = symptom.Serialize();
                 outputFile.Write($"{serializedSymptom}");
 
@@ -51,6 +51,7 @@ public class SymptomManager
         {
             SymptomTriggerSet set = new SymptomTriggerSet();
             bool firstLoop = true;
+
             string[] parts = line.Split("~");
             foreach (string part in parts)
             {
@@ -73,13 +74,6 @@ public class SymptomManager
             }
 
             AddSymptomTriggerSet(set);
-
         }
     }
-
-    
-
-
-
-
 }

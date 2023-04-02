@@ -27,6 +27,7 @@ public class Menu
         Console.WriteLine();
         Console.WriteLine("Options:");
         Console.WriteLine();
+        
         //loops through the menu array and displays each option with an incremental number.
         foreach (string item in _menu)
         {
@@ -37,8 +38,6 @@ public class Menu
         Console.WriteLine();
         Console.Write("Select an option from the menu:  ");
         _userChoice = int.Parse(Console.ReadLine());
-        Console.WriteLine();
-        Console.WriteLine();
     }
 
     public int GetUserChoice()
