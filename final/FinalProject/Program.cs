@@ -13,7 +13,7 @@ class Program
         Console.ReadLine();
 
         bool run = true;
-        SymptomManager manager = new SymptomManager();
+        SetsManager manager = new SetsManager();
 
         while (run == true)
         {

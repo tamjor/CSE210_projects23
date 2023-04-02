@@ -1,14 +1,14 @@
 using System;
 
-public class SymptomManager
+public class SetsManager
 {
     private List<SymptomTriggerSet> _symptomTriggerSets;
 
-    public SymptomManager()
+
+    public SetsManager()
     {
         _symptomTriggerSets = new List<SymptomTriggerSet>();
     }
-
     
     public void AddSymptomTriggerSet(SymptomTriggerSet set)
     {
@@ -19,7 +19,6 @@ public class SymptomManager
     {
         return _symptomTriggerSets;
     } 
-
 
     public void SavesymptomTriggerList(string filename)
     {

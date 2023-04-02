@@ -8,9 +8,7 @@ public class Symptom
     protected string _symptomSeverity;
     protected string _symptomStart;
     protected string _symptomEnd;
-    
 
-   
 
     public void LogSymptom()
     {

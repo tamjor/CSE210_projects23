@@ -5,6 +5,7 @@ public class SymptomTriggerSet
     private Symptom _symptom;
     private List<Trigger> _triggers;
 
+
     public SymptomTriggerSet()
     {
         _triggers = new List<Trigger>();
