@@ -4,17 +4,22 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         Console.WriteLine();
         Console.WriteLine("Welcome to the Symptom Tracker.");
         Console.WriteLine();
-        Console.WriteLine("You can use this program to log symptoms with their potential/suspected triggers.\nYou will then be able to view your symptoms with their triggers to better gauge\nhow a trigger may be causing your symptoms.");
+        Console.WriteLine("You can use this program to log symptoms with their potential/suspected triggers.\nYou will then be able to view your symptoms with their triggers to better gauge\nhow a trigger may be causing and/or effecting your symptoms.");
+        Console.Write("Press ENTER to continue.");
+        Console.ReadLine();
 
         bool run = true;
         SymptomManager manager = new SymptomManager();
 
         while (run == true)
         {
+            Console.Clear();
             Menu main = new Menu("main");
+            Console.WriteLine("Main Menu");
             main.DisplayMenu();
             int userChoice = main.GetUserChoice();
 
@@ -30,8 +35,10 @@ class Program
 
                 while (newTrigger == true)
                 {
-                    Console.WriteLine("Would you like to add a trigger for this symptom(Y/N)? ");
+                    Console.WriteLine();
+                    Console.Write("Would you like to add a trigger for this symptom(Y/N)? ");
                     string triggerChoice = Console.ReadLine();
+                    Console.Clear();
 
                     if (string.Equals(triggerChoice, "y", StringComparison.OrdinalIgnoreCase))
                     {
@@ -69,6 +76,7 @@ class Program
                         Console.WriteLine();
                     }
 
+                    Console.WriteLine();
                     Console.Write("Press ENTER to continue.");
                     Console.ReadLine();
                 }

@@ -40,7 +40,6 @@ public class SymptomManager
                 }
                 outputFile.WriteLine();
             }
-            
         }
     }
 

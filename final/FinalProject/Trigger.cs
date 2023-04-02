@@ -29,12 +29,13 @@ public class Trigger
         else if (typeChoice == 4)
             _triggerType = "Medicine";
 
+        Console.Clear();
         Console.WriteLine();
-        Console.Write("Give a brief description of the trigger: ");
+        Console.Write($"Give a brief description of the {_triggerType} trigger: ");
         _triggerDescription = Console.ReadLine();
         
         Console.WriteLine();
-        Console.Write("When did the trigger occur(MM/DD/HH/MM)? ");
+        Console.Write($"When did the {_triggerType} trigger occur(MM/DD/HH/MM)? ");
         _triggerOccurance = Console.ReadLine();
     } 
     

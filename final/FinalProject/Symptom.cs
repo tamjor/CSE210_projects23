@@ -56,30 +56,31 @@ public class Symptom
         else if (typeChoice == 11)
             _symptomType = "Skeletal";
         
+        Console.Clear();
         Console.WriteLine();
-        Console.Write("Where is the symptom located? ");
+        Console.Write($"Where is the {_symptomType} symptom located? ");
         _symptomLocation = Console.ReadLine();
 
         Console.WriteLine();
-        Console.Write("Give a brief description of the symptom: ");
+        Console.Write($"Give a brief description of the {_symptomType} symptom: ");
         _symptomDescription = Console.ReadLine();
 
         Console.WriteLine();
-        Console.Write("How severe is the symptom on a scale of one to ten? ");
+        Console.Write($"How severe is the {_symptomType} symptom on a scale of one to ten? ");
         _symptomSeverity = Console.ReadLine();
 
         Console.WriteLine();
-        Console.Write("When did the symptom start?(MM/DD/HH/MM) ");
+        Console.Write($"When did the {_symptomType} symptom start?(MM/DD/HH/MM) ");
         _symptomStart = Console.ReadLine();
 
         Console.WriteLine();
-        Console.Write("Has the symptom ended?(Y/N) ");
+        Console.Write($"Has the {_symptomType} symptom ended?(Y/N) ");
         string userChoice = Console.ReadLine();
-        
+
         if (string.Equals(userChoice, "y", StringComparison.OrdinalIgnoreCase))
         {
             Console.WriteLine();
-            Console.Write("When did the symptom end?(MM/DD/HH/MM) ");
+            Console.Write($"When did the {_symptomType} symptom end?(MM/DD/HH/MM) ");
             _symptomEnd = Console.ReadLine();
         }
     }
@@ -92,7 +93,7 @@ public class Symptom
     public void SetSymptomEnd()
     {
         Console.WriteLine();
-        Console.Write("When did the symptom end?(MM/DD/HH/MM) ");
+        Console.Write($"When did the {_symptomType} symptom end?(MM/DD/HH/MM) ");
         _symptomEnd = Console.ReadLine();
     }
 
