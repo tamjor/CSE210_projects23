@@ -84,6 +84,8 @@ class Program
                             }
                         }
                     }
+                    Console.Write("Press ENTER to continue.");
+                    Console.ReadLine();
                 }
 
             }
@@ -122,16 +124,16 @@ class Program
                 string fileName = Console.ReadLine();
                 manager.SavesymptomTriggerList(fileName);
                 Console.WriteLine("Your information has been saved.");
-                Thread.Sleep(300);
+                Thread.Sleep(500);
             } 
 
             else if (userChoice == 5) //Load File
             {
                 Console.Write("From which file do you want to load your information? ");
                 string fileName = Console.ReadLine();
-                manager.SavesymptomTriggerList(fileName);
+                manager.LoadSymptomTriggerList(fileName);
                 Console.WriteLine("Your information has been loaded.");
-                Thread.Sleep(300);
+                Thread.Sleep(500);
             }
 
             else if (userChoice == 6) //Quit Program

@@ -25,19 +25,12 @@ public class SymptomManager
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            bool tilda = false;
             foreach (SymptomTriggerSet symptomItem in _symptomTriggerSets)  
             {
                 Symptom symptom = symptomItem.GetSymptom();
                 string serializedSymptom = symptom.Serialize();
-                if (tilda == false)
-                {
-                    outputFile.Write($"{serializedSymptom}");
-                    tilda = true;
-                }
-                else
-                outputFile.Write($"~{serializedSymptom}");
-                
+                outputFile.Write($"{serializedSymptom}");
+
                 List<Trigger> triggers = symptomItem.GetTriggers();
                 foreach (Trigger triggerItem in triggers)
                 {
@@ -45,12 +38,13 @@ public class SymptomManager
                     string serializedTrigger = triggerItem.Serialize();
                     outputFile.Write($"~{serializedTrigger}");
                 }
+                outputFile.WriteLine();
             }
             
         }
     }
 
-    public void LoadSystemTriggerList(string filename)
+    public void LoadSymptomTriggerList(string filename)
     {
         string[] lines = System.IO.File.ReadAllLines(filename);
         foreach (string line in lines)
