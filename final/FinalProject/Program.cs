@@ -7,7 +7,7 @@ class Program
         Console.WriteLine("");
         Console.WriteLine("Welcome to the Symptom Tracker.");
         Console.WriteLine("");
-        Console.WriteLine("Explain how program works");
+        Console.WriteLine("You can use this program to log symptoms with their potential/suspected triggers.\nYou will then be able to view your symptoms with their triggers to better gauge\nhow a trigger may be causing your symptoms.");
         Console.WriteLine("");
 
         bool run = true;
