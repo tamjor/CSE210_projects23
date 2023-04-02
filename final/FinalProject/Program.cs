@@ -70,7 +70,7 @@ class Program
               
                 else if (orderChoice == 2 )//By Symptom Type
                 {
-                    List<string> symptoms = new List<string>{"Muscular", "Respiratory"};
+                    List<string> symptoms = new List<string>{"Cardiovascular", "Digestive", "Endocrine", "Dermal", "Immune", "Muscular", "Nervous", "Renal", "Reproductive", "Respiratory", "Skeletal"};
                     foreach (string item in symptoms)
                     {
                         List<SymptomTriggerSet> sets = manager.GetSymptomTriggerList();

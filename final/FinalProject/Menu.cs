@@ -10,7 +10,7 @@ public class Menu
         if (menu == "main")
             _menu = new string[] {"Add Symptom", "List Symptoms", "Add Symptom End Time", "Save File", "Load File", "Quit Program"};
         else if (menu == "symptom")
-            _menu = new string[] {"Muscular", "Respiratory"};
+            _menu = new string[] {"Cardiovascular", "Digestive", "Endocrine", "Dermal", "Immune", "Muscular", "Nervous", "Renal", "Reproductive", "Respiratory", "Skeletal"};
         else if (menu == "trigger")
             _menu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
         else if (menu == "order")

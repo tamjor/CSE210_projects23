@@ -21,9 +21,27 @@ public class Symptom
         menu.DisplayMenu();
         int typeChoice = menu.GetUserChoice();
         if (typeChoice == 1)
-            _symptomType = "Muscular";
+            _symptomType = "Cardiovascular";
         else if (typeChoice == 2)
+            _symptomType = "Digestive";
+        else if (typeChoice == 3)
+            _symptomType = "Endocrine";
+        else if (typeChoice == 4)
+            _symptomType = "Dermal";
+        else if (typeChoice == 5)
+            _symptomType = "Immune";
+        else if (typeChoice == 6)
+            _symptomType = "Muscular";
+        else if (typeChoice == 7)
+            _symptomType = "Nervous";
+        else if (typeChoice == 8)
+            _symptomType = "Renal";
+        else if (typeChoice == 9)
+            _symptomType = "Reproductive";
+        else if (typeChoice == 10)
             _symptomType = "Respiratory";
+        else if (typeChoice == 11)
+            _symptomType = "Skeletal";
         
         Console.Write("Where is the symptom located? ");
         _symptomLocation = Console.ReadLine();
