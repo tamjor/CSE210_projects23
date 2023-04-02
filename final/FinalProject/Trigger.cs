@@ -29,6 +29,9 @@ public class Trigger
         else if (typeChoice == 4)
             _triggerType = "Medicine";
 
+        else if (typeChoice == 5)
+            _triggerType = "Other";
+
         Console.Clear();
         Console.WriteLine();
         Console.Write($"Give a brief description of the {_triggerType} trigger: ");

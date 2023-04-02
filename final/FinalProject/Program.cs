@@ -102,6 +102,7 @@ class Program
                         }
                     }
 
+                    Console.WriteLine();
                     Console.Write("Press ENTER to continue.");
                     Console.ReadLine();
                 }
@@ -129,6 +130,7 @@ class Program
                 {
                     Console.WriteLine();
                     Console.WriteLine("There aren't any symptoms that need an end time added.");
+                    Thread.Sleep(700);
                 }
 
                 else

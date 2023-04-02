@@ -97,17 +97,32 @@ public class Symptom
 
     public string Serialize()
     {
-        return $"{_symptomType}|{_symptomLocation}|{_symptomDescription}|{_symptomSeverity}|{_symptomStart}|{_symptomEnd}";
+        if (_symptomEnd == null)
+            return $"{_symptomType}|{_symptomLocation}|{_symptomDescription}|{_symptomSeverity}|{_symptomStart}";
+        else 
+            return $"{_symptomType}|{_symptomLocation}|{_symptomDescription}|{_symptomSeverity}|{_symptomStart}|{_symptomEnd}";    
     }
 
     public void Deserialize(string[] symptom)
     {
-        _symptomType = symptom[0];
-        _symptomLocation = symptom[1];
-        _symptomDescription = symptom[2];
-        _symptomSeverity = symptom[3];
-        _symptomStart = symptom[4];
-        _symptomEnd = symptom[5];
+        if (symptom.Length == 5)
+        {
+            _symptomType = symptom[0];
+            _symptomLocation = symptom[1];
+            _symptomDescription = symptom[2];
+            _symptomSeverity = symptom[3];
+            _symptomStart = symptom[4];
+        }
+        
+        else
+        {
+            _symptomType = symptom[0];
+            _symptomLocation = symptom[1];
+            _symptomDescription = symptom[2];
+            _symptomSeverity = symptom[3];
+            _symptomStart = symptom[4];
+            _symptomEnd = symptom[5];
+        }
     }
 
     public void DisplaySymptom()

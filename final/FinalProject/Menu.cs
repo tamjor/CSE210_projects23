@@ -12,7 +12,7 @@ public class Menu
         else if (menu == "symptom")
             _menu = new string[] {"Cardiovascular", "Digestive", "Endocrine", "Dermal", "Immune", "Muscular", "Nervous", "Renal", "Reproductive", "Respiratory", "Skeletal"};
         else if (menu == "trigger")
-            _menu = new string[] {"Activity", "Environmental", "Food", "Medicine"};
+            _menu = new string[] {"Activity", "Environmental", "Food", "Medicine", "Other"};
         else if (menu == "order")
             _menu = new string[] {"By Order Added", "By Symptom Type"};
         else
@@ -27,7 +27,7 @@ public class Menu
         Console.WriteLine();
         Console.WriteLine("Options:");
         Console.WriteLine();
-        
+
         //loops through the menu array and displays each option with an incremental number.
         foreach (string item in _menu)
         {
