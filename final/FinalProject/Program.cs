@@ -125,19 +125,28 @@ class Program
                     }
                 }
 
-                Console.WriteLine("These Symptoms do not have an End time listed: ");
-                int number = 1;
-
-                foreach (Symptom item in noEnds)
+                if (noEnds.Count == 0) 
                 {
-                    string type = item.GetSymptomType();
-                    Console.WriteLine($"  {number}) {type}");
-                    number++;
+                    Console.WriteLine();
+                    Console.WriteLine("There aren't any symptoms that need an end time added.");
                 }
 
-                Console.Write("To which Symptom would you like to add a End time? ");
-                int endChoice = int.Parse(Console.ReadLine());
-                noEnds[endChoice-1].SetSymptomEnd();
+                else
+                {
+                    Console.WriteLine("These Symptoms do not have an End time listed: ");
+                    int number = 1;
+
+                    foreach (Symptom item in noEnds)
+                    {
+                        string type = item.GetSymptomType();
+                        Console.WriteLine($"  {number}) {type}");
+                        number++;
+                    }
+
+                    Console.Write("To which Symptom would you like to add a End time? ");
+                    int endChoice = int.Parse(Console.ReadLine());
+                    noEnds[endChoice-1].SetSymptomEnd();
+                }    
             }
 
             else if (userChoice == 4) //Save File
